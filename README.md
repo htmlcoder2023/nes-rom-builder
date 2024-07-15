@@ -4,24 +4,22 @@ This is a Python program that attempts to build matching game ROMs by brute-forc
 
 The format for the text file is like this:
 
-Line 1: [Game Name]
+Line 1: [CRC32 of Unheadered ROM]
 
-Line 2: [CRC32 of Unheadered ROM]
+Line 2: [MD5 of Unheadered ROM]
 
-Line 3: [MD5 of Unheadered ROM]
+Line 3: [SHA1 of Unheadered ROM]
 
-Line 4: [SHA1 of Unheadered ROM]
+Line 4: [SHA256 of Unheadered ROM]
 
-Line 5: [SHA256 of Unheadered ROM]
+Line 5: [CRC32 of Headered File]
 
-Line 6: [CRC32 of Headered File]
+Line 6: [MD5 of Headered File]
 
-Line 7: [MD5 of Headered File]
+Line 7: [SHA1 of Headered File]
 
-Line 8: [SHA1 of Headered File]
+Line 8: [SHA256 of Headered File]
 
-Line 9: [SHA256 of Headered File]
+Lines 9-24: [The decimal equivalent of each byte in the header.]
 
-Lines 10-25: [The decimal equivalent of each byte in the header.]
-
-Line 26: [File size]
+Line 25: [File size]
