@@ -187,7 +187,7 @@ while satisfied == False and i < possibilities:
 
     print("You have built " + str(i + 1) + " files.")
     i += 1
-    if i >= 122022:
+    if i >= 122022 and numStop == 40976 or i >= 203318 and numStop == 24592:
         if question == "no" and i%122022 == 0 and numStop == 40976 or question == "no" and i%203318 == 0 and numStop == 24592:
             os.system("git config --global user.name " + input("git config --global user.name: "))
             os.system("git config --global user.email " + input("git config --global user.email: "))
