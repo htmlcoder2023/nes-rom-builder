@@ -187,8 +187,8 @@ while satisfied == False and i < possibilities:
 
     print("You have built " + str(i + 1) + " files.")
     i += 1
-    if i >= 122022 and numStop == 40976 or i >= 203318 and numStop == 24592:
-        if question == "no" and i%122022 == 0 and numStop == 40976 or question == "no" and i%203318 == 0 and numStop == 24592:
+    if i >= 122022 / 2 and numStop == 40976 or i >= 203318 / 2 and numStop == 24592:
+        if question == "no" and i%(122022 / 2) == 0 and numStop == 40976 or question == "no" and i%(203318 / 2) == 0 and numStop == 24592:
             os.system("git config --global user.name " + input("git config --global user.name: "))
             os.system("git config --global user.email " + input("git config --global user.email: "))
             gitHost = "git clone " + input("git clone: ")
@@ -196,8 +196,9 @@ while satisfied == False and i < possibilities:
             print("Paste the name of the git repository you just cloned. Otherwise, the script will not work properly.")
             gitRepo = input("Name of Git Repository: ")
             os.system("move *.bin " + gitRepo)
+            os.system("move *.nes " + gitRepo)
             os.system("cd " + gitRepo)
-            os.system("del header.bin")
+            os.system("move header.bin ..")
             os.system("git switch --create master")
             os.system("git init --initial-branch=master")
             os.system("git remote add origin " + gitHost.replace("git clone ", ""))
