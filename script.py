@@ -191,7 +191,7 @@ while satisfied == False and i < possibilities:
         if question == "no" and i%(122022 / 2) == 0 and numStop == 40976 or question == "no" and i%(203318 / 2) == 0 and numStop == 24592:
             os.system("git config --global user.name " + input("git config --global user.name: "))
             os.system("git config --global user.email " + input("git config --global user.email: "))
-            gitHost = "git clone " + input("git clone: ")
+            gitHost = "git clone " + input("git clone: ") + ".git"
             os.system(gitHost)
             print("Paste the name of the git repository you just cloned. Otherwise, the script will not work properly.")
             gitRepo = input("Name of Git Repository: ")
