@@ -2,6 +2,11 @@
 # And @CrouZ for the response at https://stackoverflow.com/questions/1742866/compute-crc-of-file-in-python
 
 import random
+from sys import platform
+if sys.platform.startswith('win32'):
+	system = "windows"
+elif sys.platform.startswith('linux'):
+	system = "linux"
 import os.path
 import os
 import hashlib
@@ -117,15 +122,20 @@ def optimize(val, power):
  
  
 possibilities = optimize(256, numStop - 16)
-input("You are attempting to add " + str(possibilities) + " files. Are you sure about this? ")
+if system == "windows":
+	input("You are attempting to add " + str(possibilities) + " files. Are you sure about this? ")
 
 while satisfied == False and i < possibilities:
     while os.path.isfile("file" + str(i + 1) + ".nes"):
         if question == "no":
             i += 1
         elif question == "yes":
-            os.system("del *.nes")
-            os.system("del *.bin")
+			if system == "windows":
+            	os.system("del *.nes")
+            	os.system("del *.bin")
+			elif system == "linux":
+				os.system("rm *.nes")
+				os.system("rm *.bin")
 
     file = open("file" + str(i + 1) + ".nes", "wb")
     prg = open("file" + str(i + 1) + ".bin", "wb")
@@ -178,8 +188,12 @@ while satisfied == False and i < possibilities:
         else:
             print("File" + str(i + 1) + ".nes has the wrong file hashes and the wrong ROM hashes. Retrying...")
             if question == "yes" and i > 0:
-                os.system("del file" + str(i + 1) + ".nes")
-                os.system("del file" + str(i + 1) + ".bin")
+				if system == "windows":
+                	os.system("del file" + str(i + 1) + ".nes")
+                	os.system("del file" + str(i + 1) + ".bin")
+				elif system == "linux":
+					os.system("rm file" + str(i + 1) + ".nes")
+					os.system("rm file" + str(i + 1) + ".bin")
             elif question == "no" or question == "yes" and i == 0:
                 print("Moving to the next file.")
             else:
@@ -195,10 +209,17 @@ while satisfied == False and i < possibilities:
             os.system(gitHost)
             print("Paste the name of the git repository you just cloned. Otherwise, the script will not work properly.")
             gitRepo = input("Name of Git Repository: ")
-            os.system("move *.bin " + gitRepo)
-            os.system("move *.nes " + gitRepo)
+			if system == "windows":
+            	os.system("move *.bin " + gitRepo)
+            	os.system("move *.nes " + gitRepo)
+			elif system == "linux":
+				os.system("mv *.bin " + gitRepo)
+				os.system("mv *.nes " + gitRepo)
             os.system("cd " + gitRepo)
-            os.system("move header.bin ..")
+			if system == "windows":
+            	os.system("move header.bin ..")
+			elif system == "linux":	
+				os.system("mv header.bin ..")
             os.system("git switch --create master")
             os.system("git init --initial-branch=master")
             os.system("git remote add origin " + gitHost.replace("git clone ", ""))
@@ -206,4 +227,7 @@ while satisfied == False and i < possibilities:
             os.system("git commit -m \"Update files\"")
             os.system("git push --set-upstream origin master")
             os.system("cd ..")
-            os.system("del " + gitRepo)
+			if system == "windows":
+            	os.system("del " + gitRepo)
+			elif system == "linux":
+				os.system("rm -r " + gitRepo)
