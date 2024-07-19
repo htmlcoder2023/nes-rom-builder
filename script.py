@@ -2,16 +2,16 @@
 # And @CrouZ for the response at https://stackoverflow.com/questions/1742866/compute-crc-of-file-in-python
 
 import random
+import sys
 from sys import platform
 if sys.platform.startswith('win32'):
-	system = "windows"
+    system = "windows"
 elif sys.platform.startswith('linux'):
-	system = "linux"
+    system = "linux"
 import os.path
 import os
 import hashlib
 import zlib
-import sys
 sys.set_int_max_str_digits(0)
 satisfied = False
 i = 0
@@ -32,10 +32,6 @@ crc_LSS = []
 md5_LSS = []
 sha1_LSS = []
 sha256_LSS = []
-crc_HDR = []
-md5_HDR = []
-sha1_HDR = []
-sha256_HDR = []
 
 print("Only compare ROMs with the same header. Otherwise, there will be garbage data in the header and the hashes will not match.")
 
@@ -44,11 +40,6 @@ for games in gameName:
     md5_LSS.append(input("MD5 of ROM (unheadered): "))
     sha1_LSS.append(input("SHA1 of ROM (unheadered): "))
     sha256_LSS.append(input("SHA256 of ROM (unheadered): "))
-    crc_HDR.append(input("CRC of File (headered): "))
-    md5_HDR.append(input("MD5 of File (headered): "))
-    sha1_HDR.append(input("SHA1 of File (headered): "))
-    sha256_HDR.append(input("SHA256 of File (headered): "))
-
 
 print("Use a hex to decimal converter to get the decimal equivalent-numbers from the 16-byte headers. They will be converted back into hex numbers.")
 headerByte_00 = int(input("Byte 1: "))
@@ -123,19 +114,19 @@ def optimize(val, power):
  
 possibilities = optimize(256, numStop - 16)
 if system == "windows":
-	input("You are attempting to add " + str(possibilities) + " files. Are you sure about this? ")
+    input("You are attempting to add " + str(possibilities) + " files. Are you sure about this? ")
 
 while satisfied == False and i < possibilities:
     while os.path.isfile("file" + str(i + 1) + ".nes"):
         if question == "no":
             i += 1
         elif question == "yes":
-			if system == "windows":
-            	os.system("del *.nes")
-            	os.system("del *.bin")
-			elif system == "linux":
-				os.system("rm *.nes")
-				os.system("rm *.bin")
+            if system == "windows":
+                os.system("del *.nes")
+                os.system("del *.bin")
+            elif system == "linux":
+                os.system("sudo rm *.nes")
+                os.system("sudo rm *.bin")
 
     file = open("file" + str(i + 1) + ".nes", "wb")
     prg = open("file" + str(i + 1) + ".bin", "wb")
@@ -173,27 +164,17 @@ while satisfied == False and i < possibilities:
     for games in range(len(gameName)):
         if romCRC32 == crc_LSS[games].replace(" ", "") and romMD5 == md5_LSS[games].replace(" ", "") and romSHA1 == sha1_LSS[games].replace(" ", "") and romSHA256 == sha256_LSS[games].replace(" ", ""):
             satisfied = True
-            if fileCRC32 == crc_HDR[games].replace(" ", "") and fileMD5 == md5_HDR[games].replace(" ", "") and fileSHA1 == sha1_HDR[games].replace(" ", "") and fileSHA256 == sha256_HDR[games].replace(" ", ""):
-                print("This file has the correct ROM and file hashes!")
-                print("You have successfully built a copy of " + gameName[games] + "!")
-            else:
-                print("File" + str(i + 1) + ".nes has the correct ROM hashes but the wrong file hashes. The header may be the problem.")
-        elif fileCRC32 == crc_HDR[games].replace(" ", "") and fileMD5 == md5_HDR[games].replace(" ", "") and fileSHA1 == sha1_HDR[games].replace(" ", "") and fileSHA256 == sha256_HDR[games].replace(" ", ""):
-            satisfied = True
-            if romCRC32 == crc_LSS[games].replace(" ", "") and romMD5 == md5_LSS[games].replace(" ", "") and romSHA1 == sha1_LSS[games].replace(" ", "") and romSHA256 == sha256_LSS[games].replace(" ", ""):
-                print("This file has the correct ROM and file hashes!")
-                print("You have successfully built a copy of " + gameName[games] + "!")
-            else:
-                print("File" + str(i + 1) + ".nes has the correct file hashes but the wrong rom hashes. The ROM has a high chance of crashing, so it is suggested you retry this script.")
+            print("This file has the correct ROM and file hashes!")
+            print("You have successfully built a copy of " + gameName[games] + "!")
         else:
-            print("File" + str(i + 1) + ".nes has the wrong file hashes and the wrong ROM hashes. Retrying...")
+            print("File" + str(i + 1) + ".nes has the wrong file hashes. Retrying...")
             if question == "yes" and i > 0:
-				if system == "windows":
-                	os.system("del file" + str(i + 1) + ".nes")
-                	os.system("del file" + str(i + 1) + ".bin")
-				elif system == "linux":
-					os.system("rm file" + str(i + 1) + ".nes")
-					os.system("rm file" + str(i + 1) + ".bin")
+                if system == "windows":
+                    os.system("del file" + str(i + 1) + ".nes")
+                    os.system("del file" + str(i + 1) + ".bin")
+                elif system == "linux":
+                    os.system("sudo rm file" + str(i + 1) + ".nes")
+                    os.system("sudo rm file" + str(i + 1) + ".bin")
             elif question == "no" or question == "yes" and i == 0:
                 print("Moving to the next file.")
             else:
@@ -209,17 +190,17 @@ while satisfied == False and i < possibilities:
             os.system(gitHost)
             print("Paste the name of the git repository you just cloned. Otherwise, the script will not work properly.")
             gitRepo = input("Name of Git Repository: ")
-			if system == "windows":
-            	os.system("move *.bin " + gitRepo)
-            	os.system("move *.nes " + gitRepo)
-			elif system == "linux":
-				os.system("mv *.bin " + gitRepo)
-				os.system("mv *.nes " + gitRepo)
+            if system == "windows":
+                os.system("move *.bin " + gitRepo)
+                os.system("move *.nes " + gitRepo)
+            elif system == "linux":
+                os.system("mv *.bin " + gitRepo)
+                os.system("mv *.nes " + gitRepo)
             os.system("cd " + gitRepo)
-			if system == "windows":
-            	os.system("move header.bin ..")
-			elif system == "linux":	
-				os.system("mv header.bin ..")
+            if system == "windows":
+                os.system("move header.bin ..")
+            elif system == "linux":	
+                os.system("mv header.bin ..")
             os.system("git switch --create master")
             os.system("git init --initial-branch=master")
             os.system("git remote add origin " + gitHost.replace("git clone ", ""))
@@ -227,7 +208,7 @@ while satisfied == False and i < possibilities:
             os.system("git commit -m \"Update files\"")
             os.system("git push --set-upstream origin master")
             os.system("cd ..")
-			if system == "windows":
-            	os.system("del " + gitRepo)
-			elif system == "linux":
-				os.system("rm -r " + gitRepo)
+            if system == "windows":
+                os.system("del " + gitRepo)
+            elif system == "linux":
+                os.system("sudo rm -r " + gitRepo)
