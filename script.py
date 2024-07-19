@@ -170,11 +170,11 @@ while satisfied == False and i < possibilities:
             print("File" + str(i + 1) + ".nes has the wrong file hashes. Retrying...")
             if question == "yes" and i > 0:
                 if system == "windows":
-                    os.system("del file" + str(i + 1) + ".nes")
-                    os.system("del file" + str(i + 1) + ".bin")
+                    os.system("del file" + str(i) + ".nes")
+                    os.system("del file" + str(i) + ".bin")
                 elif system == "linux":
-                    os.system("sudo rm file" + str(i + 1) + ".nes")
-                    os.system("sudo rm file" + str(i + 1) + ".bin")
+                    os.system("sudo rm file" + str(i) + ".nes")
+                    os.system("sudo rm file" + str(i) + ".bin")
             elif question == "no" or question == "yes" and i == 0:
                 print("Moving to the next file.")
             else:
