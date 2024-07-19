@@ -12,14 +12,6 @@ Line 3: [SHA1 of Unheadered ROM]
 
 Line 4: [SHA256 of Unheadered ROM]
 
-Line 5: [CRC32 of Headered File]
+Lines 5-20: [The decimal equivalent of each byte in the header.]
 
-Line 6: [MD5 of Headered File]
-
-Line 7: [SHA1 of Headered File]
-
-Line 8: [SHA256 of Headered File]
-
-Lines 9-24: [The decimal equivalent of each byte in the header.]
-
-Line 25: [File size]
+Line 21: [File size]
