@@ -171,7 +171,7 @@ while satisfied == False and i < possibilities:
             if system == "windows":
                 os.system("del " + gitRepo)
             elif system == "linux":
-			    os.system("cd " + gitRepo)
-				os.remove("*.bin")
-				os.system("cd ..")
+                os.system("cd " + gitRepo)
+                os.remove("*.bin")
+                os.system("cd ..")
                 os.rmdir(gitRepo)
