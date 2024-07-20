@@ -24,11 +24,13 @@ if os.path.isfile('bytes.dat') and os.path.isfile('byteloc.dat'):
         lines = [line.rstrip() for line in f]
         for bytes in range(len(lines)):
             sameBytes.append(int(lines[bytes]))
+        f.close()
 
     with open('byteloc.dat') as f:
         loc = [loc.rstrip() for loc in f]
         for bytes in range(len(loc)):
             bytesLoc.append(int(loc[bytes]))
+        f.close()
 
 question = input("Would you like to delete corrupt files? ")
 numOfGames = int(input("How many games would you like to compare these hashes to? "))
@@ -171,6 +173,7 @@ while satisfied == False and i < possibilities:
 
     print("You have built " + str(i + 1) + " files.")
     i += 1
+	prg.close()
     if i >= 122022 / 2 and numStop == 40976 or i >= 203318 / 2 and numStop == 24592:
         if question == "no" and i%(122022 / 2) == 0 and numStop == 40976 or question == "no" and i%(203318 / 2) == 0 and numStop == 24592:
             os.system("git config --global user.name " + input("git config --global user.name: "))
@@ -198,4 +201,3 @@ while satisfied == False and i < possibilities:
                 os.remove("*.bin")
                 os.system("cd ..")
                 os.rmdir(gitRepo)
-datFile.close()
