@@ -136,10 +136,11 @@ while satisfied == False and i < possibilities:
             for bytes in bytesLoc:
                 byteString = random.choices(bytesArr, k = bytesLoc[bytes] - bytesWritten)
                 prg.write(bytearray(byteString))
-                prg.write(bytearray(sameBytes[bytes]))
+                prg.write(bytearray(bytesArr[sameBytes[bytes]]))
                 bytesWritten = bytesLoc[bytes] + 1
             byteString = random.choices(bytesArr, k = numStop - bytesWritten)
             prg.write(bytearray(byteString))
+            bytesWritten += numStop - bytesWritten
     
     md5 = hashlib.md5()
     sha1 = hashlib.sha1()
