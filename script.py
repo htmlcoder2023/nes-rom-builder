@@ -8,6 +8,7 @@ if sys.platform.startswith('win32'):
     system = "windows"
 elif sys.platform.startswith('linux'):
     system = "linux"
+	os.system("chmod +w *.bin")
 import os.path
 import os
 import hashlib
@@ -106,7 +107,7 @@ while satisfied == False and i < possibilities:
             if system == "windows":
                 os.system("del *.bin")
             elif system == "linux":
-                os.system("rm *.bin")
+                os.system("sudo rm *.bin")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
@@ -139,7 +140,7 @@ while satisfied == False and i < possibilities:
                 if system == "windows":
                     os.system("del file" + str(i) + ".bin")
                 elif system == "linux":
-                    os.system("rm file" + str(i) + ".bin")
+                    os.system("sudo rm file" + str(i) + ".bin")
             elif question == "no" or question == "yes" and i == 0:
                 print("Moving to the next file.")
             else:
@@ -170,4 +171,7 @@ while satisfied == False and i < possibilities:
             if system == "windows":
                 os.system("del " + gitRepo)
             elif system == "linux":
-                os.system("rm -r " + gitRepo)
+			    os.system("cd " + gitRepo)
+				os.remove("*.bin")
+				os.system("cd ..")
+                os.rmdir(gitRepo)
