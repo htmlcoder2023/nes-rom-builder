@@ -8,7 +8,7 @@ if sys.platform.startswith('win32'):
     system = "windows"
 elif sys.platform.startswith('linux'):
     system = "linux"
-	os.system("chmod +w *.bin")
+    os.system("chmod +w *.bin")
 import os.path
 import os
 import hashlib
@@ -16,6 +16,19 @@ import zlib
 sys.set_int_max_str_digits(0)
 satisfied = False
 i = 0
+sameBytes = []
+bytesLoc = []
+
+if os.path.isfile('bytes.dat') and os.path.isfile('byteloc.dat'):
+    with open('bytes.dat') as f:
+        lines = [line.rstrip() for line in f]
+        for bytes in range(len(lines)):
+            sameBytes.append(int(lines[bytes]))
+
+    with open('byteloc.dat') as f:
+        loc = [loc.rstrip() for loc in f]
+        for bytes in range(len(loc)):
+            bytesLoc.append(int(loc[bytes]))
 
 question = input("Would you like to delete corrupt files? ")
 numOfGames = int(input("How many games would you like to compare these hashes to? "))
@@ -115,9 +128,18 @@ while satisfied == False and i < possibilities:
     bytesWritten = 0
 
     while bytesWritten < numStop - 16:
-        byteString = random.choices(bytesArr, k = numStop - 16)
-        prg.write(bytearray(byteString))
-        bytesWritten += numStop - 16
+        if len(sameBytes) == 0:
+            byteString = random.choices(bytesArr, k = numStop - 16)
+            prg.write(bytearray(byteString))
+            bytesWritten += numStop - 16
+        elif len(sameBytes) > 0:
+            for bytes in bytesLoc:
+                byteString = random.choices(bytesArr, k = bytesLoc[bytes] - bytesWritten)
+                prg.write(bytearray(byteString))
+                prg.write(bytearray(sameBytes[bytes]))
+                bytesWritten = bytesLoc[bytes] + 1
+            byteString = random.choices(bytesArr, k = numStop - bytesWritten)
+            prg.write(bytearray(byteString))
     
     md5 = hashlib.md5()
     sha1 = hashlib.sha1()
@@ -175,3 +197,4 @@ while satisfied == False and i < possibilities:
                 os.remove("*.bin")
                 os.system("cd ..")
                 os.rmdir(gitRepo)
+datFile.close()
