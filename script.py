@@ -106,7 +106,7 @@ while satisfied == False and i < possibilities:
             if system == "windows":
                 os.system("del *.bin")
             elif system == "linux":
-                os.system("sudo rm *.bin")
+                os.system("rm *.bin")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
@@ -139,7 +139,7 @@ while satisfied == False and i < possibilities:
                 if system == "windows":
                     os.system("del file" + str(i) + ".bin")
                 elif system == "linux":
-                    os.system("sudo rm file" + str(i) + ".bin")
+                    os.system("rm file" + str(i) + ".bin")
             elif question == "no" or question == "yes" and i == 0:
                 print("Moving to the next file.")
             else:
@@ -170,4 +170,4 @@ while satisfied == False and i < possibilities:
             if system == "windows":
                 os.system("del " + gitRepo)
             elif system == "linux":
-                os.system("sudo rm -r " + gitRepo)
+                os.system("rm -r " + gitRepo)
