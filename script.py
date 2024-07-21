@@ -29,7 +29,7 @@ if os.path.isfile('bytes.dat') and os.path.isfile('byteloc.dat'):
     with open('byteloc.dat') as f:
         loc = [loc.rstrip() for loc in f]
         for bytes in range(len(loc)):
-            bytesLoc.append(int(loc[bytes]))
+            bytesLoc.append(int(loc[bytes]) - 16)
         f.close()
 
 question = input("Would you like to delete corrupt files? ")
@@ -135,7 +135,7 @@ while satisfied == False and i < possibilities:
             bytesWritten += numStop
         elif len(sameBytes) > 0:
             for bytes in range(len(bytesLoc)):
-                if bytesLoc[bytes] - bytesWritten > 0:
+                if bytesLoc[bytes] - bytesWritten >= 0:
                     byteString = random.choices(bytesArr, k = bytesLoc[bytes] - bytesWritten)
                     prg.write(bytearray(byteString))
                     prg.write(bytearray(bytesArr[sameBytes[bytes]]))
