@@ -1,15 +1,25 @@
 # nes-rom-builder
 
-This is a Python program that attempts to build matching game ROMs by brute-forcing every possible ROM combination for mapper 0. There is also a .txt file that can pasted into cmd that provides information about the game's hashes. If you are willing to add a .txt file that contains a game's hashes for this project, open a pull request.
+This is a Python program that attempts to build matching game ROMs by brute-forcing every possible ROM combination for mapper 0. 
 
-The format for the text file is like this:
+# How to Run (as of 7/21/2024, or the release of v1.2)
 
-Line 1: [CRC32 of Unheadered ROM]
+* Windows
+  
+  1. Download the latest release (v1.2 at the time of this writing) and extract the folder nes-rom-builder-exe.
+  2. Tap on the .exe file to run.
+ 
+  OR
 
-Line 2: [MD5 of Unheadered ROM]
+  1. Go to Download ZIP > Code to download the latest (but not stable) version of the scripts.
+  2. Install Python 3.12.4 or auto-py-to-exe.
+  3. Run the program in Python 3.12.4 or compile these to .exe using auto-py-to-exe.
 
-Line 3: [SHA1 of Unheadered ROM]
+* Android
 
-Line 4: [SHA256 of Unheadered ROM]
-
-Line 5: [File size]
+  1. Run `pkg install python`. This should install the latest version of Python.
+  2. Install git on Termux using this guide https://www.geeksforgeeks.org/how-to-install-git-on-termux/.
+  3. Run `cd ~/storage/`.
+  4. Run `git clone https://github.com/htmlcoder2023/nes-rom-builder.git`.
+  5. Run `cd nes-rom-builder`.
+  6. Run `python [SCRIPT]`.
