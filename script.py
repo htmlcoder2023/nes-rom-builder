@@ -36,24 +36,21 @@ question = input("Would you like to delete corrupt files? ")
 numOfGames = int(input("How many games would you like to compare these hashes to? "))
 registeredGames = 0
 gameName = []
+crc_LSS = []
+md5_LSS = []
+sha1_LSS = []
+sha256_LSS = []
 
 if numOfGames == 0:
     raise Exception("Why are you running this program then??")
 
 while registeredGames < numOfGames:
     gameName.append(input("Game: "))
-    registeredGames += 1
-
-crc_LSS = []
-md5_LSS = []
-sha1_LSS = []
-sha256_LSS = []
-
-for games in gameName:
     crc_LSS.append(input("CRC of ROM (unheadered): "))
     md5_LSS.append(input("MD5 of ROM (unheadered): "))
     sha1_LSS.append(input("SHA1 of ROM (unheadered): "))
     sha256_LSS.append(input("SHA256 of ROM (unheadered): "))
+    registeredGames += 1
 
 print("Use a hex to decimal converter to get the decimal equivalent-numbers from the 16-byte headers. They will be converted back into hex numbers.")
 md5 = hashlib.md5()
@@ -121,7 +118,7 @@ while satisfied == False and i < possibilities:
             if system == "windows":
                 os.system("del *.bin")
             elif system == "linux":
-                os.system("sudo rm *.bin")
+                os.system("rm *.bin")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
@@ -153,27 +150,30 @@ while satisfied == False and i < possibilities:
     romSHA1 = str(sha1_GEN("file" + str(i + 1) + ".bin"))
     romSHA256 = str(sha256_GEN("file" + str(i + 1) + ".bin"))
 
+    prg.close()
 
     for games in range(len(gameName)):
         if romCRC32 == crc_LSS[games].replace(" ", "") and romMD5 == md5_LSS[games].replace(" ", "") and romSHA1 == sha1_LSS[games].replace(" ", "") and romSHA256 == sha256_LSS[games].replace(" ", ""):
             satisfied = True
             print("This file has the correct ROM and file hashes!")
             print("You have successfully built a copy of " + gameName[games] + "! Add an INES header to this to get this working.")
+            break
         else:
-            print("File" + str(i + 1) + ".nes has the wrong file hashes. Retrying...")
+            print("File" + str(i + 1) + ".bin has the wrong file hashes. Retrying...")
             if question == "yes" and i > 0:
-                if system == "windows":
-                    os.system("del file" + str(i) + ".bin")
-                elif system == "linux":
-                    os.system("sudo rm file" + str(i) + ".bin")
+                if system == "windows" and games == 0:
+                    os.system("del file" + str(i + 1) + ".bin")
+                elif system == "linux" and games == 0:
+                    os.system("rm file" + str(i + 1) + ".bin")
             elif question == "no" or question == "yes" and i == 0:
                 print("Moving to the next file.")
+                if i == 0 and question == "yes" and games == 0:
+                    os.system("del file1.bin")
             else:
                 raise Exception("Your answer to \"Would you like to delete corrupt files?\" can only be [yes] or [no]!")
 
     print("You have built " + str(i + 1) + " files.")
     i += 1
-    prg.close()
     if i >= 122022 / 2 and numStop == 40960 or i >= 203318 / 2 and numStop == 24576:
         if question == "no" and i%(122022 / 2) == 0 and numStop == 40960 or question == "no" and i%(203318 / 2) == 0 and numStop == 24576:
             os.system("git config --global user.name " + input("git config --global user.name: "))

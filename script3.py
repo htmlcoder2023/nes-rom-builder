@@ -1,5 +1,9 @@
 datFile = open("nes.dat", "r")
 linesArr = []
+crc32 = []
+md5 = []
+sha1 = []
+sha256 = []
 specifiedInput = input("What instances do you want to find? For example, the instance size=\"40960\" can be used to find all ROMs with a size of 40 kilobytes. ")
 mode = input("Game Check? ")
 if mode == "yes":
@@ -8,7 +12,20 @@ if mode == "yes":
 while True:
     line = datFile.readline()
     if specifiedInput in line:
-        linesArr.append(line)
+        line = line.replace("		", "")
+        line = line.replace('<rom name="', "")
+        line = line.split('"')
+        print(line[0])
+        print(line[4])
+        print(line[6])
+        print(line[8])
+        print(line[10])
+        linesArr.append(str(line[0]))
+        linesArr.append(str(line[4]))
+        linesArr.append(str(line[6]))
+        linesArr.append(str(line[8]))
+        linesArr.append(str(line[10]))
+        print(str(int(len(linesArr) / 5)) + " games added.")
     if not line:
         break
 
@@ -18,7 +35,7 @@ datFile = open("nes.dat", "w")
 
 lines = 0
 
-print("There are " + str(len(linesArr)) + " matches for your input!")
+print("There are " + str(int(len(linesArr) / 5)) + " matches for your input!")
 
 while lines < len(linesArr):
     if lines == 0:
@@ -32,14 +49,18 @@ counterCMP = len(linesArr)
 
 if mode == "yes":
     while counter < counterCMP:
+        print(linesArr[counter])
         game = input("Game: ")
         publisher = input("Publisher: ")
-        for games in range(len(linesArr)):
-            if game in linesArr[games] and publisher != setPublisher:
-                linesArr.pop(games)
-            else:
-                break
-        counter += 1
+        if game == "" or publisher == "":
+            break
+        if game in linesArr[counter] and publisher != setPublisher:
+            linesArr.pop(counter)
+            counterCMP -= 1
+        elif game in linesArr[counter] and publisher == setPublisher:
+            counter += 1
+        else:
+            raise Exception("Game not found!")
     open("nes.dat", "w")
     lines = 0
     print("There are " + str(len(linesArr)) + " matches for your input!")
