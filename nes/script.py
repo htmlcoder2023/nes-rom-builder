@@ -137,11 +137,13 @@ while satisfied == False and i < possibilities:
                 prg.write(bytearray(bytesArr[sameBytes[prgCounter]]))
                 bytesWritten += 1
                 prgCounter += 1
-            else:
+            elif len(sameBytes) == 0:
                 byteString = random.choices(bytesArr, k = 1)
                 bytesWritten += 1
                 prg.write(bytearray(byteString))
                 prgCounter += 1
+            else:
+                raise Exception("Need to write more bytes!")
         except:
             byteString = random.choices(bytesArr, k = 1)
             bytesWritten += 1
