@@ -143,7 +143,9 @@ while satisfied == False and i < possibilities:
                 prg.write(bytearray(byteString))
                 prgCounter += 1
             else:
-                raise Exception("Need to write more bytes!")
+                byteString = random.choices(bytesArr, k = 1)
+                bytesWritten += 1
+                prg.write(bytearray(byteString))
         except:
             byteString = random.choices(bytesArr, k = 1)
             bytesWritten += 1
