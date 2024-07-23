@@ -20,14 +20,11 @@ byteLoc_file = open("byteloc.dat", "a")
 matchingByte_file = open("bytes.dat", "a")
 
 for files in range(len(roms)):
-    if os.path.isfile(roms[files]) and os.path.getsize(roms[files]) == 40976 or os.path.isfile(roms[files]) and os.path.getsize(roms[files]) == 24592:
-        for size in range(len(roms)):
-            if os.path.getsize(roms[files]) != os.path.getsize(roms[size]):
-                raise Exception("All files must be the same size!")
-        for byte in pathlib.Path(roms[files]).read_bytes():
-            byteArr[files].append(byte)
-    else:
-        raise Exception("The files must be 24,592 bytes or 40,976 bytes!")
+    for size in range(len(roms)):
+        if os.path.getsize(roms[files]) != os.path.getsize(roms[size]):
+            raise Exception("All files must be the same size!")
+    for byte in pathlib.Path(roms[files]).read_bytes():
+        byteArr[files].append(byte)
 while byteLoc < os.path.getsize(roms[0]):
     romNum = 0
     matching = True
