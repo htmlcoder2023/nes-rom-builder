@@ -16,16 +16,20 @@ while True:
         line = line.replace('<rom name="', "")
         line = line.split('"')
         print(line[0])
-        print(line[4])
-        print(line[6])
-        print(line[8])
-        print(line[10])
-        linesArr.append(str(line[0]))
-        linesArr.append(str(line[4]))
-        linesArr.append(str(line[6]))
-        linesArr.append(str(line[8]))
-        linesArr.append(str(line[10]))
-        print(str(int(len(linesArr) / 5)) + " games added.")
+        try:
+            print(line[4])
+            print(line[6])
+            print(line[8])
+            print(line[10])
+        finally:
+            linesArr.append(str(line[0]))
+        try:   
+            linesArr.append(str(line[4]))
+            linesArr.append(str(line[6]))
+            linesArr.append(str(line[8]))
+            linesArr.append(str(line[10]))
+        finally:
+            print(str(int(len(linesArr) / 5)) + " games added.")
     if not line:
         break
 
