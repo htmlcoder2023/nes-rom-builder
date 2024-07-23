@@ -146,6 +146,7 @@ while satisfied == False and i < possibilities:
                 byteString = random.choices(bytesArr, k = 1)
                 bytesWritten += 1
                 prg.write(bytearray(byteString))
+                prgCounter += 1
         except:
             byteString = random.choices(bytesArr, k = 1)
             bytesWritten += 1
