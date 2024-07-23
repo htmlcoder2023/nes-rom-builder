@@ -168,13 +168,13 @@ while satisfied == False and i < possibilities:
         else:
             print("File" + str(i + 1) + ".bin has the wrong file hashes. Retrying...")
             if question == "yes" and i > 0:
-                if system == "windows" and games == 0:
+                if system == "windows" and games == len(gameName):
                     os.system("del file" + str(i + 1) + ".bin")
-                elif system == "linux" and games == 0:
+                elif system == "linux" and games == len(gameName):
                     os.system("rm file" + str(i + 1) + ".bin")
             elif question == "no" or question == "yes" and i == 0:
                 print("Moving to the next file.")
-                if i == 0 and question == "yes" and games == 0:
+                if i == 0 and question == "yes" and games == len(gameName):
                     os.system("del file1.bin")
             else:
                 raise Exception("Your answer to \"Would you like to delete corrupt files?\" can only be [yes] or [no]!")
