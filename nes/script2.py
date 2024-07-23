@@ -6,9 +6,9 @@ roms = []
 if os.path.isfile("games.dat"):
     with open("games.dat") as f:
         romNames = [romNames.rstrip() for romNames in f]
-        for roms in range(len(romNames)):
-            if romNames[roms].isspace() == False:
-                roms.append(romNames[roms])
+        for names in range(len(romNames)):
+            if romNames[names].isspace() == False:
+                roms.append(romNames[names])
 
 numOfRoms = len(roms)
 for games in range(numOfRoms):

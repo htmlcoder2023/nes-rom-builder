@@ -41,15 +41,13 @@ while True:
             print("You have created " + str(lines + 1) + " files.")
         except:
             print("Download failed.")
-            games.pop(lines)
             continue
     break
 
-    
-for lines in range(len(games)):
-    with ZipFile("C:/Users/a19ro/Downloads/nes-rom-builder/" + games[lines], 'r') as zObject: 
-        zObject.extractall(
-            path="C:/Users/a19ro/Downloads/nes-rom-builder"
-        )
+  
+with ZipFile("C:/Users/a19ro/Downloads/nes-rom-builder/*.zip", 'r') as zObject: 
+    zObject.extractall(
+        path="C:/Users/a19ro/Downloads/nes-rom-builder"
+    )
     print(str(lines + 1) + " files have been extracted!")
     os.system("del " + games[lines])
