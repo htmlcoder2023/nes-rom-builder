@@ -39,17 +39,18 @@ while True:
         try:
             urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29/" + games[lines], games[lines])
             print("You have created " + str(lines + 1) + " files.")
+            try:
+                with ZipFile("C:/Users/a19ro/Downloads/nes-rom-builder/" + games[lines], 'r') as zObject: 
+                    zObject.extractall(
+                        path="C:/Users/a19ro/Downloads/nes-rom-builder"
+                    )
+                    print(str(lines + 1) + " files extracted!")
+            except:
+                print("Extraction failed.")
+                continue
         except:
             print("Download failed.")
             continue
     break
 
-for names in range(len(games)):  
-        with ZipFile("C:/Users/a19ro/Downloads/nes-rom-builder/" + games[names], 'r') as zObject: 
-            zObject.extractall(
-                path="C:/Users/a19ro/Downloads/nes-rom-builder"
-            )
-            print(str(names + 1) + " files extracted!")
-        print("Extraction failed.")
-        continue
 os.system("del *.zip")
