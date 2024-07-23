@@ -49,5 +49,4 @@ with ZipFile("C:/Users/a19ro/Downloads/nes-rom-builder/*.zip", 'r') as zObject:
     zObject.extractall(
         path="C:/Users/a19ro/Downloads/nes-rom-builder"
     )
-    print(str(lines + 1) + " files have been extracted!")
     os.system("del *.zip")
