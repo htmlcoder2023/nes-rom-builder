@@ -41,15 +41,27 @@ md5_LSS = []
 sha1_LSS = []
 sha256_LSS = []
 
+mode = 0
+
 if os.path.isfile('nes.dat'):
     with open('nes.dat') as f:
         gameNames = [gameNames.rstrip() for gameNames in f]
         for games in range(len(gameNames)):
-            gameName.append(gameNames[games])
-            crc_LSS.append(gameNames[games + 1])
-            md5_LSS.append(gameNames[games + 2])
-            sha1_LSS.append(gameNames[games + 3])
-            sha256_LSS.append(gameNames[games + 4])
+            if mode == 0:
+                gameName.append(gameNames[games])
+                mode += 1
+            elif mode == 1:
+                crc_LSS.append(gameNames[games])
+                mode += 1
+            elif mode == 2:
+                md5_LSS.append(gameNames[games])
+                mode += 1
+            elif mode == 3:
+                sha1_LSS.append(gameNames[games])
+                mode += 1
+            elif mode == 4:
+                sha256_LSS.append(gameNames[games])
+                mode = 0
             registeredGames += 1
         f.close()
 
