@@ -36,10 +36,6 @@
 		<game_id>KDS-AKM</game_id>
 		<rom name="Akumajou Dracula (Japan) (Rev 1).fds" size="131000" crc="9661e6a4" md5="fe739e10ec1f70888a4cac28d8562fae" sha1="3f32767a51c43d3472459240b7cc230dc6a11fd5" serial="AKM"/>
 	</game>
-	<game name="Akumajou Dracula (Japan) (Rev 2) (Wii and Wii U Virtual Console)" id="0347" cloneofid="0006">
-		<description>Akumajou Dracula (Japan) (Rev 2) (Wii and Wii U Virtual Console)</description>
-		<rom name="Akumajou Dracula (Japan) (Rev 2) (Wii and Wii U Virtual Console).fds" size="131000" crc="fc72b953" md5="958f03c1c054a528f22869ca84e03a32" sha1="a81ae854db8de25e3f404187894c2a1d50a5b132" serial="AKM"/>
-	</game>
 	<game name="Akuu Senki Raijin (Japan) (Disk Writer)" id="0201">
 		<description>Akuu Senki Raijin (Japan) (Disk Writer)</description>
 		<game_id>SQF-RJN</game_id>
@@ -102,14 +98,6 @@
 		<game_id>KDS-BOK</game_id>
 		<rom name="Bio Miracle Bokutte Upa (Japan).fds" size="131000" crc="c57b947f" md5="57a1e7555064c2dbe3e2e6a82785d9f9" sha1="58db028d52c3a538c92881eafbc1c154e02f9241" serial="BOK"/>
 	</game>
-	<game name="Bio Miracle Bokutte Upa (Japan) (Wii and Wii U Virtual Console)" id="0348" cloneofid="0011">
-		<description>Bio Miracle Bokutte Upa (Japan) (Wii and Wii U Virtual Console)</description>
-		<rom name="Bio Miracle Bokutte Upa (Japan) (Wii and Wii U Virtual Console).fds" size="131000" crc="494cc75e" md5="727fbbf8dc67dcb24fb363f3343c961d" sha1="6843008d71003589b49db45d8193e19ef65855c2" serial="BOK"/>
-	</game>
-	<game name="Bio Miracle Bokutte Upa (Japan) (3DS Virtual Console)" id="0386" cloneofid="0011">
-		<description>Bio Miracle Bokutte Upa (Japan) (3DS Virtual Console)</description>
-		<rom name="Bio Miracle Bokutte Upa (Japan) (3DS Virtual Console).fds" size="131000" crc="e6801342" md5="7d466e0d92a4d82fb8a8fc288c2130b8" sha1="e566544472e817e070394b4e4f3c4934f55802c4" serial="BOK"/>
-	</game>
 	<game name="Bomberman (Japan) (Disk Writer)" id="0206">
 		<description>Bomberman (Japan) (Disk Writer)</description>
 		<game_id>HFC-BMD</game_id>
@@ -123,14 +111,6 @@
 		<description>Bubble Bobble (Japan)</description>
 		<game_id>TFD-BUB</game_id>
 		<rom name="Bubble Bobble (Japan).fds" size="131000" crc="8c8d153e" md5="7db302a54555c041d437b97665ad63cf" sha1="a28d16fdf8472ce311a0b5f0454b5da874ad86af" serial="BUB"/>
-	</game>
-	<game name="Bubble Bobble (Japan) (Wii and Wii U Virtual Console)" id="0349" cloneofid="0208">
-		<description>Bubble Bobble (Japan) (Wii and Wii U Virtual Console)</description>
-		<rom name="Bubble Bobble (Japan) (Wii and Wii U Virtual Console).fds" size="131000" crc="1cfc87ec" md5="82fad6d7047964d26d122f153b67bdc9" sha1="72396fcdb53a05eeead09565827c614048ec3fcc" serial="BUB"/>
-	</game>
-	<game name="Bubble Bobble (Japan) (3DS Virtual Console)" id="0385" cloneofid="0208">
-		<description>Bubble Bobble (Japan) (3DS Virtual Console)</description>
-		<rom name="Bubble Bobble (Japan) (3DS Virtual Console).fds" size="131000" crc="e48f3ea6" md5="8cfcf849231e7870216b9b37cab58fcb" sha1="e8c787dab4a947a8c1826a458c378fa97c351d27" serial="BUB"/>
 	</game>
 	<game name="BurgerTime (Japan) (Disk Writer)" id="0209">
 		<description>BurgerTime (Japan) (Disk Writer)</description>
@@ -151,10 +131,6 @@
 		<description>Clu Clu Land (Japan) (En) (Disk Writer)</description>
 		<game_id>FMC-CLD</game_id>
 		<rom name="Clu Clu Land (Japan) (En) (Disk Writer).fds" size="65500" crc="85e771b9" md5="a1802300b60961f7670f60acebc88842" sha1="dc1b3e6c0db8d1ad94c619c310f47a28b7adf884" serial="CLD"/>
-	</game>
-	<game name="Clu Clu Land (Japan) (En) (GameCube, Virtual Console)" id="0334" cloneofid="0213">
-		<description>Clu Clu Land (Japan) (En) (GameCube, Virtual Console)</description>
-		<rom name="Clu Clu Land (Japan) (En) (GameCube, Virtual Console).fds" size="65500" crc="406edd8d" md5="78fa67c8f40d951082178f334fd6dc28" sha1="b7a73df77da83d60b6a64918fcacbabbc0da72f1" serial="CLD"/>
 	</game>
 	<game name="Cocona World (Japan)" id="0022">
 		<description>Cocona World (Japan)</description>
@@ -218,10 +194,6 @@
 		<game_id>KDS-DRK</game_id>
 		<rom name="Dracula II - Noroi no Fuuin (Japan).fds" size="131000" crc="3a0bb17b" md5="0eda1dabca3cdd01cfe34e24ef5155b7" sha1="82be8e77c41c2e9d0675dac8f20d6bf85c7f8f19" serial="DRK"/>
 	</game>
-	<game name="Dracula II - Noroi no Fuuin (Japan) (Virtual Console)" id="0368" cloneofid="0037">
-		<description>Dracula II - Noroi no Fuuin (Japan) (Virtual Console)</description>
-		<rom name="Dracula II - Noroi no Fuuin (Japan) (Virtual Console).fds" size="131000" crc="f451269f" md5="5bf41ffcef22c7bcda75ebb11de60a3b" sha1="2a7a6d31af642203b3c8aefc048c7c975c80b7f3" serial="DRK"/>
-	</game>
 	<game name="Druid - Kyoufu no Tobira (Japan)" id="0038">
 		<description>Druid - Kyoufu no Tobira (Japan)</description>
 		<game_id>JFD-DRD</game_id>
@@ -251,14 +223,6 @@
 		<description>Esper Dream (Japan) (Rev 1) (Disk Writer)</description>
 		<game_id>KDS-ESP</game_id>
 		<rom name="Esper Dream (Japan) (Rev 1) (Disk Writer).fds" size="131000" crc="7aecf9d8" md5="6b6cf238668429511a027b1739403975" sha1="4dddce65694344da9f83c9b85d6524da0958962c" sha256="b6527373aaa483636c25aa3dac564636ba5314bcbcaad2f0f4d988f09589fca8" serial="ESP"/>
-	</game>
-	<game name="Esper Dream (Japan) (Rev 1) (Wii and Wii U Virtual Console)" id="0350" cloneofid="0042">
-		<description>Esper Dream (Japan) (Rev 1) (Wii and Wii U Virtual Console)</description>
-		<rom name="Esper Dream (Japan) (Rev 1) (Wii and Wii U Virtual Console).fds" size="131000" crc="b954c11a" md5="bfcbf0f8614f9290c6dae6e1b13f33ab" sha1="bb477227cbdc52b14a505d6c5db0ab52d221fb26" serial="ESP"/>
-	</game>
-	<game name="Esper Dream (Japan) (Rev 1) (3DS Virtual Console)" id="0387" cloneofid="0042">
-		<description>Esper Dream (Japan) (Rev 1) (3DS Virtual Console)</description>
-		<rom name="Esper Dream (Japan) (Rev 1) (3DS Virtual Console).fds" size="131000" crc="edaf1a42" md5="37aec6af89447c6aa81bc160ccc1e50a" sha1="5c99eb99f77ed111fb1062512552c822c5017fde" serial="ESP"/>
 	</game>
 	<game name="Exciting Baseball (Japan)" id="0043">
 		<description>Exciting Baseball (Japan)</description>
@@ -323,10 +287,6 @@
 		<game_id>FMC-ON2</game_id>
 		<rom name="Famicom Mukashibanashi - Shin Onigashima - Kouhen (Japan).fds" size="131000" crc="29de8c55" md5="4ed16d918142773011f377f26f7025df" sha1="ca3a0fe11973e91d5930c341c2763e20753eef09" serial="ON2"/>
 	</game>
-	<game name="Famicom Mukashibanashi - Shin Onigashima - Kouhen (Japan) (Virtual Console)" id="0360" cloneofid="0280">
-		<description>Famicom Mukashibanashi - Shin Onigashima - Kouhen (Japan) (Virtual Console)</description>
-		<rom name="Famicom Mukashibanashi - Shin Onigashima - Kouhen (Japan) (Virtual Console).fds" size="131000" crc="7af926ab" md5="21d1db2db96a6ea45435dc9c81d69d0c" sha1="5b3730027d93c8dc7a2788a61f59183fadb07011" serial="ON2"/>
-	</game>
 	<game name="Famicom Mukashibanashi - Shin Onigashima - Zenpen (Japan) (DV 1)" id="0279" cloneofid="0322">
 		<description>Famicom Mukashibanashi - Shin Onigashima - Zenpen (Japan) (DV 1)</description>
 		<game_id>FMC-ON1</game_id>
@@ -336,14 +296,6 @@
 		<description>Famicom Mukashibanashi - Shin Onigashima - Zenpen (Japan) (DV 2, 3) (Disk Writer)</description>
 		<game_id>FMC-ON1</game_id>
 		<rom name="Famicom Mukashibanashi - Shin Onigashima - Zenpen (Japan) (DV 2, 3) (Disk Writer).fds" size="131000" crc="5bd86b7b" md5="efebcb43329b1818035ff5ebdc347793" sha1="2d47856c27208be90626e988af77d74fe5bc2c59" sha256="2963d55c22b1b52cc24495318b771da373090371f667a62da649738ce522152e" serial="ON1"/>
-	</game>
-	<game name="Famicom Mukashibanashi - Shin Onigashima - Zenpen (Japan) (DV 3) (Wii and Wii U Virtual Console)" id="0359" cloneofid="0322">
-		<description>Famicom Mukashibanashi - Shin Onigashima - Zenpen (Japan) (DV 3) (Wii and Wii U Virtual Console)</description>
-		<rom name="Famicom Mukashibanashi - Shin Onigashima - Zenpen (Japan) (DV 3) (Wii and Wii U Virtual Console).fds" size="131000" crc="5742bd49" md5="53621b34043e04f965c72142c74318fd" sha1="d3d0ffe6b41733bb8c85f706b557a20fd06d7ec4" serial="ON1"/>
-	</game>
-	<game name="Famicom Mukashibanashi - Shin Onigashima - Zenpen (Japan) (DV 3) (3DS Virtual Console)" id="0378" cloneofid="0322">
-		<description>Famicom Mukashibanashi - Shin Onigashima - Zenpen (Japan) (DV 3) (3DS Virtual Console)</description>
-		<rom name="Famicom Mukashibanashi - Shin Onigashima - Zenpen (Japan) (DV 3) (3DS Virtual Console).fds" size="131000" crc="4233bdf3" md5="d20245ab0adf0979641a119172c40ab0" sha1="b8caf3b70b6381e641bf2a6b5b46b6cd6a26f0a2" serial="ON1"/>
 	</game>
 	<game name="Famicom Mukashibanashi - Yuuyuuki - Kouhen (Japan)" id="0192">
 		<description>Famicom Mukashibanashi - Yuuyuuki - Kouhen (Japan)</description>
@@ -360,44 +312,20 @@
 		<game_id>FMC-TC2</game_id>
 		<rom name="Famicom Tantei Club - Kieta Koukeisha - Kouhen (Japan).fds" size="131000" crc="37de7bd4" md5="9a37c64b86f851a010431c76e2b360fe" sha1="57b678989bc6c1a2e90bd7c6944de4c161169781" serial="TC2"/>
 	</game>
-	<game name="Famicom Tantei Club - Kieta Koukeisha - Kouhen (Japan) (3DS Virtual Console)" id="0390" cloneofid="0183">
-		<description>Famicom Tantei Club - Kieta Koukeisha - Kouhen (Japan) (3DS Virtual Console)</description>
-		<rom name="Famicom Tantei Club - Kieta Koukeisha - Kouhen (Japan) (3DS Virtual Console).fds" size="131000" crc="61360da0" md5="5489e099a7d8802c397a55f349a8c162" sha1="15d4990871c5382a309d4f10e7ee9264e970bd42" serial="TC2"/>
-	</game>
 	<game name="Famicom Tantei Club - Kieta Koukeisha - Zenpen (Japan) (DV 1, 3)" id="0182">
 		<description>Famicom Tantei Club - Kieta Koukeisha - Zenpen (Japan) (DV 1, 3)</description>
 		<game_id>FMC-TC1</game_id>
 		<rom name="Famicom Tantei Club - Kieta Koukeisha - Zenpen (Japan) (DV 1, 3).fds" size="131000" crc="1bf5f454" md5="0bdff1170becc5d77c7133839b5fd3cf" sha1="2145eefc46b35317e1de8f254154716d5ea68fab" serial="TC1"/>
-	</game>
-	<game name="Famicom Tantei Club - Kieta Koukeisha - Zenpen (Japan) (DV 3) (Wii and Wii U Virtual Console)" id="0361" cloneofid="0182">
-		<description>Famicom Tantei Club - Kieta Koukeisha - Zenpen (Japan) (DV 3) (Wii and Wii U Virtual Console)</description>
-		<rom name="Famicom Tantei Club - Kieta Koukeisha - Zenpen (Japan) (DV 3) (Wii and Wii U Virtual Console).fds" size="131000" crc="6dbf2ffc" md5="416d9131b5607cc5bc9404e5b2489e39" sha1="4c6e9446655b4fbbd23015707bfbda80f643c032" serial="TC1"/>
-	</game>
-	<game name="Famicom Tantei Club - Kieta Koukeisha - Zenpen (Japan) (DV 3) (3DS Virtual Console)" id="0389" cloneofid="0182">
-		<description>Famicom Tantei Club - Kieta Koukeisha - Zenpen (Japan) (DV 3) (3DS Virtual Console)</description>
-		<rom name="Famicom Tantei Club - Kieta Koukeisha - Zenpen (Japan) (DV 3) (3DS Virtual Console).fds" size="131000" crc="4d092907" md5="0082d7bbe5f6a970c16adb0691c3cc8b" sha1="daff108ee6420e6f429fb0780febeed216f989af" serial="TC1"/>
 	</game>
 	<game name="Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Kouhen (Japan) (DV 3, 4)" id="0220">
 		<description>Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Kouhen (Japan) (DV 3, 4)</description>
 		<game_id>FMC-TC4</game_id>
 		<rom name="Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Kouhen (Japan) (DV 3, 4).fds" size="131000" crc="ef5fc6b8" md5="c7b229806ffe03aff5be49c7cd64d32b" sha1="3f9cc0920e65b283190d88b6f3bf5d60d23533ed" serial="TC4"/>
 	</game>
-	<game name="Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Kouhen (Japan) (DV 4) (3DS Virtual Console)" id="0365" cloneofid="0220">
-		<description>Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Kouhen (Japan) (DV 4) (3DS Virtual Console)</description>
-		<rom name="Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Kouhen (Japan) (DV 4) (3DS Virtual Console).fds" size="131000" crc="91bc6638" md5="3c9d7028e353d6275482e0b5ba821773" sha1="77f28f1d83025cee786e95f9620b6bd80f98f6ad" serial="TC4"/>
-	</game>
 	<game name="Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Zenpen (Japan)" id="0219">
 		<description>Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Zenpen (Japan)</description>
 		<game_id>FMC-TC3</game_id>
 		<rom name="Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Zenpen (Japan).fds" size="131000" crc="fe908a02" md5="d92bcb20c38a46a283f8950723b1f54e" sha1="2ab438c93074649f8b6529d58c08b6d2478089bf" serial="TC3"/>
-	</game>
-	<game name="Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Zenpen (Japan) (3DS Virtual Console)" id="0364" cloneofid="0219">
-		<description>Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Zenpen (Japan) (3DS Virtual Console)</description>
-		<rom name="Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Zenpen (Japan) (3DS Virtual Console).fds" size="131000" crc="26e56b6b" md5="de2e6226dc59bcd861aea0003e5600c5" sha1="652401db810427be2fc25004d70b8387f9e9574f" serial="TC3"/>
-	</game>
-	<game name="Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Zenpen (Japan) (Wii Virtual Console)" id="0373" cloneofid="0219">
-		<description>Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Zenpen (Japan) (Wii Virtual Console)</description>
-		<rom name="Famicom Tantei Club Part II - Ushiro ni Tatsu Shoujo - Zenpen (Japan) (Wii Virtual Console).fds" size="131000" crc="0c697954" md5="019983dee58589d6f3e04a927534868f" sha1="80a652befe3a56401a3a940730299e5dba1615f0" serial="TC3"/>
 	</game>
 	<game name="Family Composer (Japan) (Disk Writer)" id="0221">
 		<description>Family Composer (Japan) (Disk Writer)</description>
@@ -574,10 +502,6 @@
 		<description>Hikari Shinwa - Palthena no Kagami (Japan)</description>
 		<rom name="Hikari Shinwa - Palthena no Kagami (Japan).fds" size="131000" crc="76217563" md5="46132bd343de7b172a430526353e7943" sha1="3c3e9ada001961221013f2117d7c05350609ed18" serial="PTM"/>
 	</game>
-	<game name="Hikari Shinwa - Palthena no Kagami (Japan) (Rev 1) (Virtual Console)" id="0351" cloneofid="0069">
-		<description>Hikari Shinwa - Palthena no Kagami (Japan) (Rev 1) (Virtual Console)</description>
-		<rom name="Hikari Shinwa - Palthena no Kagami (Japan) (Rev 1) (Virtual Console).fds" size="131000" crc="b88d9bc2" md5="962c031a7611e3a682e1bd3988a1c2f4" sha1="42e38020df7176e20d0bb90c2b3cf33291bbde31" serial="PTM"/>
-	</game>
 	<game name="Hikaru Genji - Roller Panic (Japan)" id="0233">
 		<description>Hikaru Genji - Roller Panic (Japan)</description>
 		<game_id>PNF-GEN</game_id>
@@ -739,14 +663,6 @@
 		<game_id>FMC-LNK</game_id>
 		<rom name="Link no Bouken - The Legend of Zelda 2 (Japan) (Rev 1).fds" size="131000" crc="3024cad5" md5="4673e288b392efc26326d8fc00c18b26" sha1="9d29fd1e38993ae67564262434b775e0a7da1de2" sha256="e700ded6700405654ea4c127d502effc1beda1a669822edb5ae2d36949fac64f" serial="LNK"/>
 	</game>
-	<game name="Link no Bouken - The Legend of Zelda 2 (Japan) (Rev 1) (Collector's Edition)" id="0338" cloneofid="0081">
-		<description>Link no Bouken - The Legend of Zelda 2 (Japan) (Rev 1) (Collector's Edition)</description>
-		<rom name="Link no Bouken - The Legend of Zelda 2 (Japan) (Rev 1) (Collector's Edition).fds" size="131000" crc="d9d60599" md5="ba67bb9631be2dc9591df42f623e382a" sha1="f4b5f7594be7625f568bfcb1650288c977a07051" serial="LNK"/>
-	</game>
-	<game name="Link no Bouken - The Legend of Zelda 2 (Japan) (Rev 1) (Wii and Wii U Virtual Console)" id="0353" cloneofid="0081">
-		<description>Link no Bouken - The Legend of Zelda 2 (Japan) (Rev 1) (Wii and Wii U Virtual Console)</description>
-		<rom name="Link no Bouken - The Legend of Zelda 2 (Japan) (Rev 1) (Wii and Wii U Virtual Console).fds" size="131000" crc="5f1d39cb" md5="91d1089d011431c6006f78573d7e6437" sha1="afda1be5c8a24872318bfe32c8dd2ca794e6f460" serial="LNK"/>
-	</game>
 	<game name="Lutter (Japan) (Disk Writer)" id="0249">
 		<description>Lutter (Japan) (Disk Writer)</description>
 		<game_id>ATH-LTD</game_id>
@@ -806,14 +722,6 @@
 		<game_id>FMC-MET</game_id>
 		<rom name="Metroid (Japan) (Rev 3).fds" size="131000" crc="5e4f013d" md5="bb765939f75bcf9234b4bf77ca04281b" sha1="741e51b01c3d9d814ae9acdd4d1ab6d8c34ef446" sha256="6a4fa984a12e26b394998b17a924aee2033e0313d8c70dcfc6dc48cbbf809299" serial="MET"/>
 	</game>
-	<game name="Metroid (Japan) (Rev 3) (Wii and Wii U Virtual Console)" id="0354" cloneofid="0311">
-		<description>Metroid (Japan) (Rev 3) (Wii and Wii U Virtual Console)</description>
-		<rom name="Metroid (Japan) (Rev 3) (Wii and Wii U Virtual Console).fds" size="131000" crc="6aa1e4a2" md5="66af3a6411dc8c251c9c0ea6579b0ed7" sha1="7ce90fdfcf841f346c8d55dd988e219a8ba30c00" serial="MET"/>
-	</game>
-	<game name="Metroid (Japan) (Rev 3) (3DS Virtual Console)" id="0391" cloneofid="0311">
-		<description>Metroid (Japan) (Rev 3) (3DS Virtual Console)</description>
-		<rom name="Metroid (Japan) (Rev 3) (3DS Virtual Console).fds" size="131000" crc="f45a0636" md5="2f1ff14ce96dcc83654c325d914cc165" sha1="76779ce9c1c25966016f6da5b59906c91e357966" serial="MET"/>
-	</game>
 	<game name="Michael English Daibouken (Japan)" id="0304">
 		<description>Michael English Daibouken (Japan)</description>
 		<rom name="Michael English Daibouken (Japan).fds" size="131000" crc="d446fd96" md5="75aaa59eec0d4747593f9a758b1d483a" sha1="d67d02d9946f00bf139fcbe2d9d04420857bfd76" sha256="623144885ab4aeec7e48906818fdcda05df85d96f7d70ec1ba4db6bfab13b43b" serial="MEA"/>
@@ -865,18 +773,6 @@
 	<game name="Nazo no Murasamejou (Japan)" id="0095">
 		<description>Nazo no Murasamejou (Japan)</description>
 		<rom name="Nazo no Murasamejou (Japan).fds" size="131000" crc="9a523757" md5="fa04b0b2d99d560e7076198ab72a15d3" sha1="3102abcab2bec46f63e88461f73539b94aa73cbd" serial="NMJ"/>
-	</game>
-	<game name="Nazo no Murasamejou (Japan) (GameCube)" id="0336" cloneofid="0095">
-		<description>Nazo no Murasamejou (Japan) (GameCube)</description>
-		<rom name="Nazo no Murasamejou (Japan) (GameCube).fds" size="131000" crc="de74418b" md5="5527076b402459560f37f0b7aab929ea" sha1="c2822590c892823d41a4f11da8103930efaa2b98" serial="NMJ"/>
-	</game>
-	<game name="Nazo no Murasamejou (Japan) (Wii and Wii U Virtual Console)" id="0370" cloneofid="0095">
-		<description>Nazo no Murasamejou (Japan) (Wii and Wii U Virtual Console)</description>
-		<rom name="Nazo no Murasamejou (Japan) (Wii and Wii U Virtual Console).fds" size="131000" crc="6d054479" md5="ca6cd31ef133561ccab809e601a97fb5" sha1="8b1c5d6c99e02fa6c194e1cb4144a39d57d12193" serial="NMJ"/>
-	</game>
-	<game name="Nazo no Murasamejou (World) (Ja) (3DS Virtual Console)" id="0372" cloneofid="0095">
-		<description>Nazo no Murasamejou (World) (Ja) (3DS Virtual Console)</description>
-		<rom name="Nazo no Murasamejou (World) (Ja) (3DS Virtual Console).fds" size="131000" crc="1df004f6" md5="79cd5b28438f0c1857c1029820b768ba" sha1="c650d0bef18014426ac0bddd80659feaedd5c4e6" serial="NMJ"/>
 	</game>
 	<game name="Nazoler Land - Dainigou (Japan)" id="0096">
 		<description>Nazoler Land - Dainigou (Japan)</description>
@@ -1031,14 +927,6 @@
 		<game_id>BAN-SGW</game_id>
 		<rom name="SD Gundam World - Gachapon Senshi - Scramble Wars (Japan) (Rev 1).fds" size="131000" crc="43f70704" md5="745da85d17a6275d8af779fd03174c41" sha1="3776c600ab4c67b8ea96da73c96bf69e11f08fac" sha256="7a7cda493f2c33fd0392befa33294f8390704325397116b646e0b325f791758c" serial="SGW"/>
 	</game>
-	<game name="SD Gundam World - Gachapon Senshi - Scramble Wars (Japan) (Rev 1) (3DS Virtual Console)" id="0366" cloneofid="0299">
-		<description>SD Gundam World - Gachapon Senshi - Scramble Wars (Japan) (Rev 1) (3DS Virtual Console)</description>
-		<rom name="SD Gundam World - Gachapon Senshi - Scramble Wars (Japan) (Rev 1) (3DS Virtual Console).fds" size="131000" crc="f24355af" md5="d307ae3d07386606cb986ee10dbbb099" sha1="75ded78092e98ef28ffc039ca1b2b6156174b8ed" serial="SGW"/>
-	</game>
-	<game name="SD Gundam World - Gachapon Senshi - Scramble Wars (Japan) (Rev 1) (Wii Virtual Console)" id="0375" cloneofid="0299">
-		<description>SD Gundam World - Gachapon Senshi - Scramble Wars (Japan) (Rev 1) (Wii Virtual Console)</description>
-		<rom name="SD Gundam World - Gachapon Senshi - Scramble Wars (Japan) (Rev 1) (Wii Virtual Console).fds" size="131000" crc="286fbaeb" md5="fadf6d08280a703bb9a4dbed3ab3acfd" sha1="a1ff40f20792ab07e09f49e2b70a6478d5b5d703" serial="SGW"/>
-	</game>
 	<game name="SD Gundam World - Gachapon Senshi - Scramble Wars - Map Collection (Japan) (Disk Writer)" id="0298">
 		<description>SD Gundam World - Gachapon Senshi - Scramble Wars - Map Collection (Japan) (Disk Writer)</description>
 		<game_id>BAN-SG2</game_id>
@@ -1174,14 +1062,6 @@
 		<game_id>FMC-SMB</game_id>
 		<rom name="Super Mario Bros. 2 (Japan) (En) (DV 2).fds" size="65500" crc="5c419ee8" md5="f62909ad7125ed94ef0fc1d44164a518" sha1="08927227b6ff67f42e759505d176cd924931bd14" serial="SMB"/>
 	</game>
-	<game name="Super Mario Bros. 2 (World) (GameCube, Wii and Wii U Virtual Console)" id="0333" cloneofid="0297">
-		<description>Super Mario Bros. 2 (World) (GameCube, Wii and Wii U Virtual Console)</description>
-		<rom name="Super Mario Bros. 2 (World) (GameCube, Wii and Wii U Virtual Console).fds" size="65500" crc="5d08dd11" md5="b210c0f117d46819cc81720ff521d762" sha1="b2dbc55efcae77abad6207b802c0a76d7a47ed0d" serial="SMB"/>
-	</game>
-	<game name="Super Mario Bros. 2 (Japan) (En) (Game &amp; Watch - Super Mario Bros.)" id="0422" cloneofid="0297">
-		<description>Super Mario Bros. 2 (Japan) (En) (Game &amp; Watch - Super Mario Bros.)</description>
-		<rom name="Super Mario Bros. 2 (Japan) (En) (Game &amp; Watch - Super Mario Bros.).fds" size="65500" crc="42b63ca5" md5="2a322bd3832945cf8d5f71644a9e2135" sha1="cb9fb99b7731ed05b81d4b6bae06e0fbf8d21fa8" serial="SMB"/>
-	</game>
 	<game name="Tama &amp; Friends - Sanchoume Daibouken (Japan)" id="0272">
 		<description>Tama &amp; Friends - Sanchoume Daibouken (Japan)</description>
 		<game_id>BAN-UTM</game_id>
@@ -1202,18 +1082,10 @@
 		<game_id>DFC-KF2</game_id>
 		<rom name="Tantei Jinguuji Saburou - Kiken na Futari - Kouhen (Japan).fds" size="131000" crc="fb9e5e31" md5="38ebd16b064832c019771ce584c77bc7" sha1="658456aca84ac406b512033defcd2c71d56d0661" serial="KF1"/>
 	</game>
-	<game name="Tantei Jinguuji Saburou - Kiken na Futari - Kouhen (Japan) (Virtual Console)" id="0377" cloneofid="0196">
-		<description>Tantei Jinguuji Saburou - Kiken na Futari - Kouhen (Japan) (Virtual Console)</description>
-		<rom name="Tantei Jinguuji Saburou - Kiken na Futari - Kouhen (Japan) (Virtual Console).fds" size="131000" crc="c139f698" md5="f2a451ae1ff8c6c21d9f8dfe1c7713b4" sha1="ca38ed325f0b15a3a40e02106d09d48ab10186ef" serial="KF1"/>
-	</game>
 	<game name="Tantei Jinguuji Saburou - Kiken na Futari - Zenpen (Japan)" id="0195">
 		<description>Tantei Jinguuji Saburou - Kiken na Futari - Zenpen (Japan)</description>
 		<game_id>DFC-KF1</game_id>
 		<rom name="Tantei Jinguuji Saburou - Kiken na Futari - Zenpen (Japan).fds" size="131000" crc="05376233" md5="ed8861840da220d4efe8a982e6b19459" sha1="ffa76f47530b53d92d93b307c585aecb960d9cf3" sha256="5595956add5379144046ce935c53ca421a3f4dd7028d57f50a3173fb15b4a842" serial="KF1"/>
-	</game>
-	<game name="Tantei Jinguuji Saburou - Kiken na Futari - Zenpen (Japan) (Virtual Console)" id="0376" cloneofid="0195">
-		<description>Tantei Jinguuji Saburou - Kiken na Futari - Zenpen (Japan) (Virtual Console)</description>
-		<rom name="Tantei Jinguuji Saburou - Kiken na Futari - Zenpen (Japan) (Virtual Console).fds" size="131000" crc="9ac78f51" md5="dc1b4830367095369d0d34a7725521b0" sha1="a1aee4e7c40d68914d5098a91db3f0d5556ce16a" serial="KF1"/>
 	</game>
 	<game name="Tantei Jinguuji Saburou - Shinjuku Chuuou Kouen Satsujin Jiken (Japan)" id="0194" cloneofid="0324">
 		<description>Tantei Jinguuji Saburou - Shinjuku Chuuou Kouen Satsujin Jiken (Japan)</description>
@@ -1224,10 +1096,6 @@
 		<description>Tantei Jinguuji Saburou - Shinjuku Chuuou Kouen Satsujin Jiken (Japan) (Rev 1) (Disk Writer)</description>
 		<game_id>DFC-JUK</game_id>
 		<rom name="Tantei Jinguuji Saburou - Shinjuku Chuuou Kouen Satsujin Jiken (Japan) (Rev 1) (Disk Writer).fds" size="131000" crc="6ea9af07" md5="a31105d86cbc839c7fa0fcee281a5b84" sha1="f7709e6f6b40430fb1b2f6d0e51222639284d215" sha256="d752ad040d6a9a8c58c9c5806a667f11eb6860973cfcf54001223d6ba2582ecd" serial="JUK"/>
-	</game>
-	<game name="Tantei Jinguuji Saburou - Shinjuku Chuuou Kouen Satsujin Jiken (Japan) (Rev 1) (Virtual Console)" id="0355" cloneofid="0324">
-		<description>Tantei Jinguuji Saburou - Shinjuku Chuuou Kouen Satsujin Jiken (Japan) (Rev 1) (Virtual Console)</description>
-		<rom name="Tantei Jinguuji Saburou - Shinjuku Chuuou Kouen Satsujin Jiken (Japan) (Rev 1) (Virtual Console).fds" size="131000" crc="c4be81e1" md5="b17c31288607f1d26da312a65ad17234" sha1="bda6e858719b38a4c21f09f4f4c08d4c462522f4" serial="JUK"/>
 	</game>
 	<game name="Tarot Uranai (Japan)" id="0273">
 		<description>Tarot Uranai (Japan)</description>
@@ -1268,10 +1136,6 @@
 		<description>Topple Zip (Japan)</description>
 		<game_id>BTC-TPZ</game_id>
 		<rom name="Topple Zip (Japan).fds" size="131000" crc="84591d73" md5="c2f4ae141ac73daa00b70d9c71338506" sha1="e53cbc375b9f32cb5682af8aafbfb594f47a4dd1" sha256="549811ebd484974c328e28d466fdbc7782912857251cb62dd91bb6f758c94a18" serial="TPZ"/>
-	</game>
-	<game name="Topple Zip (Japan) (Project EGG)" id="0433" cloneofid="0274">
-		<description>Topple Zip (Japan) (Project EGG)</description>
-		<rom name="Topple Zip (Japan) (Project EGG).fds" size="131000" crc="a461bf9b" md5="ebb3ccd86e68de110b4fe528129d52d5" sha1="065c0137021b5097ada7c347ef50857d777720bd" sha256="850473b44227f0d4ce7cb2f2d96fb00d8976be1b835a33c325abcc561a40d8cc" serial="TPZ"/>
 	</game>
 	<game name="Transformers - The Headmasters (Japan)" id="0174">
 		<description>Transformers - The Headmasters (Japan)</description>
@@ -1316,10 +1180,6 @@
 		<description>Vs. Excitebike (Japan) (En)</description>
 		<game_id>FMC-EBD</game_id>
 		<rom name="Vs. Excitebike (Japan) (En).fds" size="131000" crc="febe1841" md5="8681dd0370e520d52274ebd5dd7eac24" sha1="010f6dc860b0bae80e55c199b3206e95ec14e31f" serial="EBD"/>
-	</game>
-	<game name="Vs. Excitebike (Japan, USA) (En) (Virtual Console)" id="0363" cloneofid="0127">
-		<description>Vs. Excitebike (Japan, USA) (En) (Virtual Console)</description>
-		<rom name="Vs. Excitebike (Japan, USA) (En) (Virtual Console).fds" size="131000" crc="a1a824bf" md5="d07f5f79e9fd1ccdd219637ee630aee6" sha1="080e960bc9c11dd0da378776ea776b456348bc6a" serial="EBD"/>
 	</game>
 	<game name="Wakusei Aton Gaiden (Japan) (National Tax Agency Demo)" id="0128">
 		<description>Wakusei Aton Gaiden (Japan) (National Tax Agency Demo)</description>
@@ -1389,17 +1249,5 @@
 		<description>Zelda no Densetsu - The Hyrule Fantasy (Japan) (Rev 1)</description>
 		<game_id>FMC-ZEL</game_id>
 		<rom name="Zelda no Densetsu - The Hyrule Fantasy (Japan) (Rev 1).fds" size="131000" crc="8f2202bf" md5="18d20a07fd107d9db045451578914c94" sha1="1429fbe3e62059994b6ff7c5e5e2a330831faf63" serial="ZEL"/>
-	</game>
-	<game name="Zelda no Densetsu - The Hyrule Fantasy (Japan) (GameCube)" id="0335" cloneofid="0135">
-		<description>Zelda no Densetsu - The Hyrule Fantasy (Japan) (GameCube)</description>
-		<rom name="Zelda no Densetsu - The Hyrule Fantasy (Japan) (GameCube).fds" size="131000" crc="3f9e421c" md5="e54440c35bd79ebe3f4bd271adac7178" sha1="391a14143328f45ae7cdd0e38fe3d39082c9f786" serial="ZEL"/>
-	</game>
-	<game name="Zelda no Densetsu - The Hyrule Fantasy (Japan) (Collector's Edition)" id="0337" cloneofid="0135">
-		<description>Zelda no Densetsu - The Hyrule Fantasy (Japan) (Collector's Edition)</description>
-		<rom name="Zelda no Densetsu - The Hyrule Fantasy (Japan) (Collector's Edition).fds" size="131000" crc="b64b1456" md5="659c5f15e548cd4075091c6e9b7f4893" sha1="eb72c80fef3f55395ad3fc9a0f845935593cfd61" serial="ZEL"/>
-	</game>
-	<game name="Zelda no Densetsu - The Hyrule Fantasy (Japan) (Virtual Console)" id="0358" cloneofid="0135">
-		<description>Zelda no Densetsu - The Hyrule Fantasy (Japan) (Virtual Console)</description>
-		<rom name="Zelda no Densetsu - The Hyrule Fantasy (Japan) (Virtual Console).fds" size="131000" crc="0fb00a60" md5="4d4a13629aeac9407ec40f59954cd8c5" sha1="21d7a4fa72c8d78319797eef812dff23bab08a43" serial="ZEL"/>
 	</game>
 </datafile>
