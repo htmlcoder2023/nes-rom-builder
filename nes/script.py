@@ -35,7 +35,6 @@ if os.path.isfile('bytes.dat') and os.path.isfile('byteloc.dat'):
         f.close()
 
 question = input("Would you like to delete corrupt files? ")
-numOfGames = int(input("How many games would you like to compare these hashes to? "))
 registeredGames = 0
 gameName = []
 crc_LSS = []
@@ -43,16 +42,17 @@ md5_LSS = []
 sha1_LSS = []
 sha256_LSS = []
 
-if numOfGames == 0:
-    raise Exception("Why are you running this program then??")
-
-while registeredGames < numOfGames:
-    gameName.append(input("Game: "))
-    crc_LSS.append(input("CRC of ROM (unheadered): "))
-    md5_LSS.append(input("MD5 of ROM (unheadered): "))
-    sha1_LSS.append(input("SHA1 of ROM (unheadered): "))
-    sha256_LSS.append(input("SHA256 of ROM (unheadered): "))
-    registeredGames += 1
+if os.path.isfile('nes.dat'):
+    with open('nes.dat') as f:
+        gameNames = [gameNames.rstrip() for gameNames in f]
+        for games in range(len(gameNames)):
+            gameName.append(gameNames[games])
+            crc_LSS.append(gameNames[games + 1])
+            md5_LSS.append(gameNames[games + 2])
+            sha1_LSS.append(gameNames[games + 3])
+            sha256_LSS.append(gameNames[games + 4])
+            registeredGames += 1
+        f.close()
 
 md5 = hashlib.md5()
 sha1 = hashlib.sha1()

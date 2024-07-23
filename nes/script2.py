@@ -5,8 +5,12 @@ numOfRoms = int(input("How many ROMs will this script compare? "))
 for games in range(numOfRoms):
     byteArr.append([])
 roms = []
-while len(roms) < numOfRoms:
-    roms.append(input("NES File " + str(len(roms) + 1) + ": "))
+
+if os.path.isfile("games.dat"):
+    with open("games.dat") as f:
+        romNames = [romNames.rstrip() for romNames in f]
+        for roms in range(len(romNames)):
+            roms.append(romNames[roms])
 
 matching = True
 byteLoc = 0

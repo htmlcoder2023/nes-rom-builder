@@ -5,9 +5,6 @@ md5 = []
 sha1 = []
 sha256 = []
 specifiedInput = input("What instances do you want to find? For example, the instance size=\"40960\" can be used to find all ROMs with a size of 40 kilobytes. ")
-mode = input("Game Check? ")
-if mode == "yes":
-    setPublisher = input("What publisher are you targeting? ")
 
 while True:
     line = datFile.readline()
@@ -45,36 +42,5 @@ while lines < len(linesArr):
     else:
         datFile.write("\n" + linesArr[lines])
     lines += 1
-
-counter = 0
-counterCMP = len(linesArr)
-
-if mode == "yes":
-    while counter < counterCMP:
-        print(linesArr[counter])
-        game = input("Game: ")
-        publisher = input("Publisher: ")
-        if game == "" or publisher == "":
-            break
-        if game in linesArr[counter] and publisher != setPublisher:
-            linesArr.pop(counter)
-            counterCMP -= 1
-        elif game in linesArr[counter] and publisher == setPublisher:
-            counter += 1
-        else:
-            raise Exception("Game not found!")
-    open("nes.dat", "w")
-    lines = 0
-    print("There are " + str(len(linesArr)) + " matches for your input!")
-    while lines < len(linesArr):
-        if lines == 0:
-            datFile.write(linesArr[lines])
-        else:
-            datFile.write("\n" + linesArr[lines])
-        lines += 1
-elif mode == "no":
-    print("Program execution complete.")
-else:
-    raise Exception("The answer to [Game Check?] can only be [yes] or [no]!")
 
 datFile.close()
