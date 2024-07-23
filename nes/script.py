@@ -34,7 +34,6 @@ if os.path.isfile('bytes.dat') and os.path.isfile('byteloc.dat'):
                 bytesLoc.append(int(loc[bytes]) - 16)
         f.close()
 
-question = input("Would you like to delete corrupt files? ")
 registeredGames = 0
 gameName = []
 crc_LSS = []
@@ -109,14 +108,10 @@ if system == "windows":
     input("You are attempting to add " + str(possibilities) + " files. Are you sure about this? ")
 
 while satisfied == False and i < possibilities:
-    while os.path.isfile("file" + str(i + 1) + ".bin"):
-        if question == "no":
-            i += 1
-        elif question == "yes":
-            if system == "windows":
-                os.system("del *.bin")
-            elif system == "linux":
-                os.system("rm *.bin")
+    if system == "windows":
+        os.system("del *.bin")
+    elif system == "linux":
+        os.system("rm *.bin")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
@@ -167,17 +162,10 @@ while satisfied == False and i < possibilities:
             break
         else:
             print("File" + str(i + 1) + ".bin has the wrong file hashes. Retrying...")
-            if question == "yes" and i > 0:
-                if system == "windows" and games == len(gameName):
-                    os.system("del file" + str(i + 1) + ".bin")
-                elif system == "linux" and games == len(gameName):
-                    os.system("rm file" + str(i + 1) + ".bin")
-            elif question == "no" or question == "yes" and i == 0:
-                print("Moving to the next file.")
-                if i == 0 and question == "yes" and games == len(gameName):
-                    os.system("del file1.bin")
-            else:
-                raise Exception("Your answer to \"Would you like to delete corrupt files?\" can only be [yes] or [no]!")
+            if system == "windows" and games == len(gameName):
+                os.system("del file" + str(i + 1) + ".bin")
+            elif system == "linux" and games == len(gameName):
+                os.system("rm file" + str(i + 1) + ".bin")
 
     print("You have built " + str(i + 1) + " files.")
     i += 1

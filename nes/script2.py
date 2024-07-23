@@ -1,9 +1,6 @@
 import os
 import pathlib
 byteArr = []
-numOfRoms = int(input("How many ROMs will this script compare? "))
-for games in range(numOfRoms):
-    byteArr.append([])
 roms = []
 
 if os.path.isfile("games.dat"):
@@ -12,6 +9,10 @@ if os.path.isfile("games.dat"):
         for roms in range(len(romNames)):
             if romNames[roms].isspace() == False:
                 roms.append(romNames[roms])
+
+numOfRoms = len(roms)
+for games in range(numOfRoms):
+    byteArr.append([])
 
 matching = True
 byteLoc = 0
