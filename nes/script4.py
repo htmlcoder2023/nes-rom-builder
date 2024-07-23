@@ -45,12 +45,11 @@ while True:
     break
 
 for names in range(len(games)):  
-    try:
         with ZipFile("C:/Users/a19ro/Downloads/nes-rom-builder/" + games[names], 'r') as zObject: 
             zObject.extractall(
                 path="C:/Users/a19ro/Downloads/nes-rom-builder"
             )
-    except:
+            print(str(names + 1) + " files extracted!")
         print("Extraction failed.")
         continue
 os.system("del *.zip")
