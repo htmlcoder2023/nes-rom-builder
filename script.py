@@ -138,8 +138,8 @@ while satisfied == False and i < possibilities:
                 prgCounter += 1
             else:
                 try:
-                    byteString = random.choices(bytesArr, k = bytesLoc[prgCounter + 1] - bytesLoc[prgCounter])
-                    bytesWritten += bytesLoc[prgCounter + 1] - bytesLoc[prgCounter]
+                    byteString = random.choices(bytesArr, k = bytesLoc[prgCounter + 1] - bytesWritten)
+                    bytesWritten += bytesLoc[prgCounter + 1] - bytesWritten
                     prg.write(bytearray(byteString))
                 except:
                     byteString = random.choices(bytesArr, k = numStop - bytesWritten)
@@ -162,6 +162,8 @@ while satisfied == False and i < possibilities:
         if os.path.getsize("file1.bin") == numStop:
             input(bytesWritten)
         else:
+            print(bytesWritten)
+            print(str(os.path.getsize("file1.bin")))
             raise Exception("Script is not working properly!")
 
     for games in range(len(gameName)):
