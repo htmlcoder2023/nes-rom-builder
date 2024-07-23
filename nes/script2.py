@@ -10,7 +10,8 @@ if os.path.isfile("games.dat"):
     with open("games.dat") as f:
         romNames = [romNames.rstrip() for romNames in f]
         for roms in range(len(romNames)):
-            roms.append(romNames[roms])
+            if romNames[roms].isspace() == False:
+                roms.append(romNames[roms])
 
 matching = True
 byteLoc = 0
