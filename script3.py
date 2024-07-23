@@ -39,8 +39,6 @@ datFile = open("nes.dat", "w")
 
 lines = 0
 
-print("There are " + str(int(len(linesArr) / 5)) + " matches for your input!")
-
 while lines < len(linesArr):
     if lines == 0:
         datFile.write(linesArr[lines])
