@@ -95,9 +95,6 @@ def sha256_GEN(fileName):
             sha256.update(data)
         return "SHA256: {0}".format(sha256.hexdigest())
 
-if numStop != 24576 and numStop != 40960:
-    raise Exception("The ROM size can only be 24,576 bytes or 40,960 bytes!")
-
 def optimize(val, power):
     result = pow(val, power//2)
     result = result * result
@@ -189,30 +186,3 @@ while satisfied == False and i < possibilities:
 
     print("You have built " + str(i + 1) + " files.")
     i += 1
-    if i >= 122022 / 2 and numStop == 40960 or i >= 203318 / 2 and numStop == 24576:
-        if question == "no" and i%(122022 / 2) == 0 and numStop == 40960 or question == "no" and i%(203318 / 2) == 0 and numStop == 24576:
-            os.system("git config --global user.name " + input("git config --global user.name: "))
-            os.system("git config --global user.email " + input("git config --global user.email: "))
-            gitHost = "git clone " + input("git clone: ") + ".git"
-            os.system(gitHost)
-            print("Paste the name of the git repository you just cloned. Otherwise, the script will not work properly.")
-            gitRepo = input("Name of Git Repository: ")
-            if system == "windows":
-                os.system("move *.bin " + gitRepo)
-            elif system == "linux":
-                os.system("mv *.bin " + gitRepo)  
-            os.system("cd " + gitRepo)
-            os.system("git switch --create master")
-            os.system("git init --initial-branch=master")
-            os.system("git remote add origin " + gitHost.replace("git clone ", ""))
-            os.system("git add .")
-            os.system("git commit -m \"Update files\"")
-            os.system("git push --set-upstream origin master")
-            os.system("cd ..")
-            if system == "windows":
-                os.system("del " + gitRepo)
-            elif system == "linux":
-                os.system("cd " + gitRepo)
-                os.remove("*.bin")
-                os.system("cd ..")
-                os.rmdir(gitRepo)
