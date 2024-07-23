@@ -44,9 +44,13 @@ while True:
             continue
     break
 
-  
-with ZipFile("C:/Users/a19ro/Downloads/nes-rom-builder/*.zip", 'r') as zObject: 
-    zObject.extractall(
-        path="C:/Users/a19ro/Downloads/nes-rom-builder"
-    )
-    os.system("del *.zip")
+for names in range(len(games)):  
+    try:
+        with ZipFile("C:/Users/a19ro/Downloads/nes-rom-builder/" + games[names], 'r') as zObject: 
+            zObject.extractall(
+                path="C:/Users/a19ro/Downloads/nes-rom-builder"
+            )
+    except:
+        print("Extraction failed.")
+        continue
+os.system("del *.zip")
