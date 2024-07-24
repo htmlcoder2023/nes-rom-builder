@@ -18,7 +18,7 @@ while True:
             linesArr.append(str(line[4]))
             linesArr.append(str(line[6]))
             linesArr.append(str(line[8]))
-            print(str(int(len(linesArr) / 5)) + " games added.")
+            print(str(int(len(linesArr) / 4)) + " games added.")
         else:
             print(str(int(len(linesArr))) + " games added.")
     if not line:
