@@ -144,7 +144,7 @@ while satisfied == False and i < possibilities:
             raise Exception("Script is not working properly!")
 
     for games in range(len(gameName)):
-        if romCRC32 == crc_LSS[games] and romMD5 == md5_LSS[games] and romSHA1 == sha1_LSS[games]:
+        if romCRC32 == crc_LSS[games] or romMD5 == md5_LSS[games] or romSHA1 == sha1_LSS[games]:
             satisfied = True
             print("This file has the correct ROM and file hashes!")
             print("You have successfully built a copy of " + gameName[games] + "!")
