@@ -34,7 +34,6 @@ gameName = []
 crc_LSS = []
 md5_LSS = []
 sha1_LSS = []
-sha256_LSS = []
 
 mode = 0
 
@@ -53,16 +52,12 @@ if os.path.isfile('fds.dat'):
                 mode += 1
             elif mode == 3:
                 sha1_LSS.append(gameNames[games])
-                mode += 1
-            elif mode == 4:
-                sha256_LSS.append(gameNames[games])
                 mode = 0
             registeredGames += 1
         f.close()
 
 md5 = hashlib.md5()
 sha1 = hashlib.sha1()
-sha256 = hashlib.sha256()
 numStop = int(input("How large is the .fds file? "))
 
 def crc32(fileName):
@@ -92,15 +87,6 @@ def sha1_GEN(fileName):
                 break
             sha1.update(data)
         return "SHA1: {0}".format(sha1.hexdigest())
-        
-def sha256_GEN(fileName):
-    with open(fileName, 'rb') as f:
-        while True:
-            data = f.read(numStop)
-            if not data:
-                break
-            sha256.update(data)
-        return "SHA256: {0}".format(sha256.hexdigest())
 
 def optimize(val, power):
     result = pow(val, power//2)
@@ -142,12 +128,10 @@ while satisfied == False and i < possibilities:
 
     md5 = hashlib.md5()
     sha1 = hashlib.sha1()
-    sha256 = hashlib.sha256()
 
     romCRC32 = str(crc32("file" + str(i + 1) + ".fds"))
     romMD5 = str(md5_GEN("file" + str(i + 1) + ".fds"))
     romSHA1 = str(sha1_GEN("file" + str(i + 1) + ".fds"))
-    romSHA256 = str(sha256_GEN("file" + str(i + 1) + ".fds"))
 
     prg.close()
 
@@ -160,7 +144,7 @@ while satisfied == False and i < possibilities:
             raise Exception("Script is not working properly!")
 
     for games in range(len(gameName)):
-        if romCRC32 == crc_LSS[games].replace(" ", "") and romMD5 == md5_LSS[games].replace(" ", "") and romSHA1 == sha1_LSS[games].replace(" ", "") and romSHA256 == sha256_LSS[games].replace(" ", ""):
+        if romCRC32 == crc_LSS[games].replace(" ", "") and romMD5 == md5_LSS[games].replace(" ", "") and romSHA1 == sha1_LSS[games].replace(" ", ""):
             satisfied = True
             print("This file has the correct ROM and file hashes!")
             print("You have successfully built a copy of " + gameName[games] + "!")
