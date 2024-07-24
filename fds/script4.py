@@ -42,9 +42,9 @@ while True:
             urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20%28FDS%29/" + games[lines], games[lines])
             print("You have created " + str(lines + 1) + " files.")
             try:
-                with ZipFile("../nes/" + games[lines], 'r') as zObject: 
+                with ZipFile("../fds/" + games[lines], 'r') as zObject: 
                     zObject.extractall(
-                        path="../nes"
+                        path="../fds"
                     )
                     print(str(lines + 1) + " files extracted!")
             except:
