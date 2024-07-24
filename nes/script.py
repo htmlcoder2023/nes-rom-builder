@@ -4,13 +4,13 @@
 import random
 import sys
 from sys import platform
+import os
 if sys.platform.startswith('win32'):
     system = "windows"
 elif sys.platform.startswith('linux'):
     system = "linux"
     os.system("chmod +w *.bin")
 import os.path
-import os
 import hashlib
 import zlib
 sys.set_int_max_str_digits(0)
