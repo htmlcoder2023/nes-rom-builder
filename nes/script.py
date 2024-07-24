@@ -126,7 +126,7 @@ while satisfied == False and i < possibilities:
             byteString = sameBytes[prgCounter]
             prg.write(byteString)
             bytesWritten += 1
-            if prgCounter + 1 < len(sameBytes):
+            if prgCounter < len(sameBytes):
                 prgCounter += 1
             else:
                 finish = True
