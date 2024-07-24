@@ -1,9 +1,5 @@
 datFile = open("fds.dat", "r")
 linesArr = []
-crc32 = []
-md5 = []
-sha1 = []
-sha256 = []
 specifiedInput = input("What instances do you want to find? For example, the instance size=\"40960\" can be used to find all ROMs with a size of 40 kilobytes. ")
 
 while True:
@@ -17,13 +13,11 @@ while True:
             print(line[4])
             print(line[6])
             print(line[8])
-            print(line[10])
         linesArr.append(str(line[0]))
         if "nodump" not in line[2]:   
             linesArr.append(str(line[4]))
             linesArr.append(str(line[6]))
             linesArr.append(str(line[8]))
-            linesArr.append(str(line[10]))
             print(str(int(len(linesArr) / 5)) + " games added.")
         else:
             print(str(int(len(linesArr))) + " games added.")
