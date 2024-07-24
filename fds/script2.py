@@ -42,20 +42,15 @@ while byteLoc < os.path.getsize(roms[0]):
     
     if matching == True:
         print("Byte " + str(hex(byteLoc)) + " matches on all files!")
-        if byteLoc < 16:
-            input(str(hex(byteLoc)))
+        if matchingBytes == 0:
+            byteLoc_file.write(str(byteLoc))
+            matchingByte_file.write(str(byteArr[romNum][byteLoc]))
         else:
-            if matchingBytes == 0:
-                byteLoc_file.write(str(byteLoc))
-                matchingByte_file.write(str(byteArr[romNum][byteLoc]))
-            else:
-                byteLoc_file.write("\n" + str(byteLoc))
-                matchingByte_file.write("\n" + str(byteArr[romNum][byteLoc]))
-            matchingBytes += 1
+            byteLoc_file.write("\n" + str(byteLoc))
+            matchingByte_file.write("\n" + str(byteArr[romNum][byteLoc]))
+        matchingBytes += 1
     elif matching == False:
         print("Byte " + str(hex(byteLoc)) + " does not match on all files!")
-        if byteLoc < 16:
-            input(str(hex(byteLoc)))
 
     byteLoc += 1
     print(str(matchingBytes) + " bytes match!")
