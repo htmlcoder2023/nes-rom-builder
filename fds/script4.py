@@ -39,7 +39,7 @@ for lines in range(len(games)):
 while True:
     for lines in range(len(games)):
         try:
-            urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29/" + games[lines], games[lines])
+            urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20%28FDS%29/" + games[lines], games[lines])
             print("You have created " + str(lines + 1) + " files.")
             try:
                 with ZipFile("../nes/" + games[lines], 'r') as zObject: 
