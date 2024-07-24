@@ -167,7 +167,5 @@ while satisfied == False and i < possibilities:
             break
         else:
             print("File" + str(i + 1) + ".bin has the wrong file hashes. Retrying...")
-            if games == len(gameName):
-                os.system("del file" + str(i + 1) + ".bin")
     print("You have built " + str(i + 1) + " files.")
     i += 1
