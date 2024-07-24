@@ -60,47 +60,7 @@ if os.path.isfile('nes.dat'):
             registeredGames += 1
         f.close()
 
-md5 = hashlib.md5()
-sha1 = hashlib.sha1()
-sha256 = hashlib.sha256()
 numStop = int(input("How large is the .nes file without the header? "))
-
-def crc32(fileName):
-    with open(fileName, 'rb') as fh:
-        hash = 0
-        while True:
-            s = fh.read(numStop)
-            if not s:
-                break
-            hash = zlib.crc32(s, hash)
-        return "%08X" % (hash & 0xFFFFFFFF)
-
-def md5_GEN(fileName):
-    with open(fileName, 'rb') as f:
-        while True:
-            data = f.read(numStop)
-            if not data:
-                break
-            md5.update(data)
-        return "MD5: {0}".format(md5.hexdigest())
-        
-def sha1_GEN(fileName):
-    with open(fileName, 'rb') as f:
-        while True:
-            data = f.read(numStop)
-            if not data:
-                break
-            sha1.update(data)
-        return "SHA1: {0}".format(sha1.hexdigest())
-        
-def sha256_GEN(fileName):
-    with open(fileName, 'rb') as f:
-        while True:
-            data = f.read(numStop)
-            if not data:
-                break
-            sha256.update(data)
-        return "SHA256: {0}".format(sha256.hexdigest())
 
 def optimize(val, power):
     result = pow(val, power//2)
@@ -139,15 +99,19 @@ while satisfied == False and i < possibilities:
                 prgCounter += 1
             else:
                 finish = True
+    
+    prg.close()
 
-    md5 = hashlib.md5()
-    sha1 = hashlib.sha1()
-    sha256 = hashlib.sha256()
+    prg = open("file" + str(i + 1) + ".bin", "rb")
 
-    romCRC32 = str(crc32("file" + str(i + 1) + ".bin"))
-    romMD5 = str(md5_GEN("file" + str(i + 1) + ".bin"))
-    romSHA1 = str(sha1_GEN("file" + str(i + 1) + ".bin"))
-    romSHA256 = str(sha256_GEN("file" + str(i + 1) + ".bin"))
+    romCRC32 = zlib.crc32(prg.encode())
+    romCRC32 = romCRC32.hexdigest()
+    romMD5 = hashlib.md5(prg.encode())
+    romMD5 = romMD5.hexdigest()
+    romSHA1 = hashlib.sha1(prg.encode())
+    romSHA1 = romSHA1.hexdigest()
+    romSHA256 = hashlib.sha256(prg.encode())
+    romSHA256 = romSHA256.hexdigest()
 
     prg.close()
 

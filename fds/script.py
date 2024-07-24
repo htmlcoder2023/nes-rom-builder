@@ -56,37 +56,7 @@ if os.path.isfile('fds.dat'):
             registeredGames += 1
         f.close()
 
-md5 = hashlib.md5()
-sha1 = hashlib.sha1()
 numStop = int(input("How large is the .fds file? "))
-
-def crc32(fileName):
-    with open(fileName, 'rb') as fh:
-        hash = 0
-        while True:
-            s = fh.read(numStop)
-            if not s:
-                break
-            hash = zlib.crc32(s, hash)
-        return "%08X" % (hash & 0xFFFFFFFF)
-
-def md5_GEN(fileName):
-    with open(fileName, 'rb') as f:
-        while True:
-            data = f.read(numStop)
-            if not data:
-                break
-            md5.update(data)
-        return "MD5: {0}".format(md5.hexdigest())
-        
-def sha1_GEN(fileName):
-    with open(fileName, 'rb') as f:
-        while True:
-            data = f.read(numStop)
-            if not data:
-                break
-            sha1.update(data)
-        return "SHA1: {0}".format(sha1.hexdigest())
 
 def optimize(val, power):
     result = pow(val, power//2)
@@ -126,12 +96,16 @@ while satisfied == False and i < possibilities:
             else:
                 finish = True
 
-    md5 = hashlib.md5()
-    sha1 = hashlib.sha1()
+    prg.close()
 
-    romCRC32 = str(crc32("file" + str(i + 1) + ".fds"))
-    romMD5 = str(md5_GEN("file" + str(i + 1) + ".fds"))
-    romSHA1 = str(sha1_GEN("file" + str(i + 1) + ".fds"))
+    prg = open("file" + str(i + 1) + ".fds", "rb")
+
+    romCRC32 = zlib.crc32(prg.encode())
+    romCRC32 = romCRC32.hexdigest()
+    romMD5 = hashlib.md5(prg.encode())
+    romMD5 = romMD5.hexdigest()
+    romSHA1 = hashlib.sha1(prg.encode())
+    romSHA1 = romSHA1.hexdigest()
 
     prg.close()
 
