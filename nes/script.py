@@ -160,7 +160,7 @@ while satisfied == False and i < possibilities:
             raise Exception("Script is not working properly!")
 
     for games in range(len(gameName)):
-        if romCRC32 == crc_LSS[games].replace(" ", "") and romMD5 == md5_LSS[games].replace(" ", "") and romSHA1 == sha1_LSS[games].replace(" ", "") and romSHA256 == sha256_LSS[games].replace(" ", ""):
+        if romCRC32 == crc_LSS[games] and romMD5 == md5_LSS[games] and romSHA1 == sha1_LSS[games] and romSHA256 == sha256_LSS[games]:
             satisfied = True
             print("This file has the correct ROM and file hashes!")
             print("You have successfully built a copy of " + gameName[games] + "! Add an INES header to this to get this working.")
