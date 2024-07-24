@@ -3,13 +3,7 @@
 
 import random
 import sys
-from sys import platform
-import os
-if sys.platform.startswith('win32'):
-    system = "windows"
-elif sys.platform.startswith('linux'):
-    system = "linux"
-    os.system("chmod +w *.bin")
+import os 
 import os.path
 import hashlib
 import zlib
@@ -117,14 +111,9 @@ def optimize(val, power):
     return result
 
 possibilities = optimize(256, numStop - len(bytesLoc))
-if system == "windows":
-    input("You are attempting to add " + str(possibilities) + " files. Are you sure about this? ")
 
 while satisfied == False and i < possibilities:
-    if system == "windows":
-        os.system("del *.bin")
-    elif system == "linux":
-        os.system("rm *.bin")
+    os.system("del *.bin")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
@@ -178,10 +167,7 @@ while satisfied == False and i < possibilities:
             break
         else:
             print("File" + str(i + 1) + ".bin has the wrong file hashes. Retrying...")
-            if system == "windows" and games == len(gameName):
+            if games == len(gameName):
                 os.system("del file" + str(i + 1) + ".bin")
-            elif system == "linux" and games == len(gameName):
-                os.system("rm file" + str(i + 1) + ".bin")
-
     print("You have built " + str(i + 1) + " files.")
     i += 1
