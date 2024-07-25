@@ -53,12 +53,10 @@ if os.path.isfile('fds.dat'):
 
 numStop = int(input("How large is the .fds file? "))
 
-os.remove("../fds/*.bin")
+os.system("del *.bin")
 
 while satisfied == False:
-    os.remove("../fds/*.fds")
-
-    print("File" + str(i) + ".fds has the wrong file hashes. Retrying...")
+    os.system("del *.fds")
 
     prg = open("file" + str(i + 1) + ".fds", "wb")
 
@@ -104,4 +102,6 @@ while satisfied == False:
             print("This file has the correct ROM and file hashes!")
             print("You have successfully built a copy of " + gameName[games] + "!")
             break
+        else:
+            print("File" + str(i + 1) + ".fds has the wrong file hashes. Retrying...")
     i += 1
