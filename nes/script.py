@@ -61,8 +61,8 @@ os.system("del *.nes")
 
 while satisfied == False:
     os.system("del *.bin")
-    
-    print("File" + str(i + 1) + ".bin has the wrong file hashes. Retrying...")
+
+    print("File" + str(i) + ".bin has the wrong file hashes. Retrying...")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 

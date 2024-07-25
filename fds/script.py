@@ -58,7 +58,7 @@ os.system("del *.bin")
 while satisfied == False:
     os.system("del *.fds")
 
-    print("File" + str(i + 1) + ".fds has the wrong file hashes. Retrying...")
+    print("File" + str(i) + ".fds has the wrong file hashes. Retrying...")
 
     prg = open("file" + str(i + 1) + ".fds", "wb")
 
