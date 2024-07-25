@@ -74,6 +74,7 @@ possibilities = optimize(256, numStop - len(bytesLoc))
 
 while satisfied == False and i < possibilities:
     os.system("del *.bin")
+    os.system("del *.nes")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
