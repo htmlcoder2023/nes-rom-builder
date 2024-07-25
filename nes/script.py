@@ -107,6 +107,5 @@ while satisfied == False:
             print("This file has the correct ROM and file hashes!")
             print("You have successfully built a copy of " + gameName[games] + "! Add an INES header to this to get this working.")
             break
-        else:
-            print("File" + str(i + 1) + ".bin has the wrong file hashes. Retrying...")
+    print("File" + str(i + 1) + ".bin has the wrong file hashes. Retrying...")
     i += 1
