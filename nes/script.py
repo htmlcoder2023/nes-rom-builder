@@ -1,6 +1,3 @@
-# Thanks to @ranman for the response at https://stackoverflow.com/questions/22058048/hashing-a-file-in-python
-# And @CrouZ for the response at https://stackoverflow.com/questions/1742866/compute-crc-of-file-in-python
-
 import random
 import sys
 import os 
@@ -29,7 +26,6 @@ if os.path.isfile('bytes.dat') and os.path.isfile('byteloc.dat'):
                 bytesLoc.append(int(loc[bytes]) - 16)
         f.close()
 
-registeredGames = 0
 gameName = []
 crc_LSS = []
 md5_LSS = []
@@ -57,24 +53,14 @@ if os.path.isfile('nes.dat'):
             elif mode == 4:
                 sha256_LSS.append(gameNames[games])
                 mode = 0
-            registeredGames += 1
         f.close()
 
 numStop = int(input("How large is the .nes file without the header? "))
 
-def optimize(val, power):
-    result = pow(val, power//2)
-    result = result * result
- 
-    if power % 2 != 0:
-        result = result * val
-    return result
+os.system("del *.nes")
 
-possibilities = optimize(256, numStop - len(bytesLoc))
-
-while satisfied == False and i < possibilities:
+while satisfied == False:
     os.system("del *.bin")
-    os.system("del *.nes")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
@@ -115,14 +101,6 @@ while satisfied == False and i < possibilities:
 
     prg.close()
 
-    if i == 0:
-        if os.path.getsize("file1.bin") == numStop:
-            input(bytesWritten)
-        else:
-            print(bytesWritten)
-            print(str(os.path.getsize("file1.bin")))
-            raise Exception("Script is not working properly!")
-
     for games in range(len(gameName)):
         if romCRC32 == crc_LSS[games] or romMD5 == md5_LSS[games] or romSHA1 == sha1_LSS[games] or romSHA256 == sha256_LSS[games]:
             satisfied = True
@@ -131,5 +109,4 @@ while satisfied == False and i < possibilities:
             break
         else:
             print("File" + str(i + 1) + ".bin has the wrong file hashes. Retrying...")
-    print("You have built " + str(i + 1) + " files.")
     i += 1
