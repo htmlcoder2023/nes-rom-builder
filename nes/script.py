@@ -105,10 +105,11 @@ while satisfied == False and i < possibilities:
     prg = open("file" + str(i + 1) + ".bin", "rb")
     prgRead = prg.read()
 
-    romCRC32 = zlib.crc32(prgRead).hexdigest()
-    romMD5 = hashlib.md5(prgRead).hexdigest()
-    romSHA1 = hashlib.sha1(prgRead).hexdigest()
-    romSHA256 = hashlib.sha256(prgRead).hexdigest()
+    romCRC32 = str(zlib.crc32(prgRead).hex())
+    romCRC32 = romCRC32.replace("0x", "")
+    romMD5 = str(hashlib.md5(prgRead).hexdigest())
+    romSHA1 = str(hashlib.sha1(prgRead).hexdigest())
+    romSHA256 = str(hashlib.sha256(prgRead).hexdigest())
 
     prg.close()
 
