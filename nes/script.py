@@ -57,12 +57,10 @@ if os.path.isfile('nes.dat'):
 
 numStop = int(input("How large is the .nes file without the header? "))
 
-os.remove("../nes/*.nes")
+os.system("del *.nes")
 
 while satisfied == False:
-    os.remove("../nes/*.bin")
-
-    print("File" + str(i) + ".bin has the wrong file hashes. Retrying...")
+    os.system("del *.bin")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
@@ -109,4 +107,6 @@ while satisfied == False:
             print("This file has the correct ROM and file hashes!")
             print("You have successfully built a copy of " + gameName[games] + "! Add an INES header to this to get this working.")
             break
+        else:
+            print("File" + str(i + 1) + ".bin has the wrong file hashes. Retrying...")
     i += 1
