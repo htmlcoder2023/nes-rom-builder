@@ -57,10 +57,10 @@ if os.path.isfile('nes.dat'):
 
 numStop = int(input("How large is the .nes file without the header? "))
 
-os.remove("*.nes")
+os.remove("../nes/*.nes")
 
 while satisfied == False:
-    os.remove("*.bin")
+    os.remove("../nes/*.bin")
 
     print("File" + str(i) + ".bin has the wrong file hashes. Retrying...")
 
