@@ -53,10 +53,10 @@ if os.path.isfile('fds.dat'):
 
 numStop = int(input("How large is the .fds file? "))
 
-os.remove("*.bin")
+os.remove("../fds/*.bin")
 
 while satisfied == False:
-    os.remove("*.fds")
+    os.remove("../fds/*.fds")
 
     print("File" + str(i) + ".fds has the wrong file hashes. Retrying...")
 
