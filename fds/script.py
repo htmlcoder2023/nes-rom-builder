@@ -101,7 +101,8 @@ while satisfied == False and i < possibilities:
     prg = open("file" + str(i + 1) + ".fds", "rb")
     prgRead = prg.read()
 
-    romCRC32 = str(zlib.crc32(prgRead).hex())
+    romCRC32 = zlib.crc32(prgRead)
+    romCRC32 = str(hex(romCRC32))
     romCRC32 = romCRC32.replace("0x", "")
     romMD5 = str(hashlib.md5(prgRead).hexdigest())
     romSHA1 = str(hashlib.sha1(prgRead).hexdigest())
