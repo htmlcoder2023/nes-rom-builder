@@ -70,6 +70,7 @@ possibilities = optimize(256, numStop - len(bytesLoc))
 
 while satisfied == False and i < possibilities:
     os.system("del *.fds")
+    os.system("del *.bin")
 
     prg = open("file" + str(i + 1) + ".fds", "wb")
 
