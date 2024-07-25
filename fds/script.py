@@ -58,6 +58,8 @@ os.system("del *.bin")
 while satisfied == False:
     os.system("del *.fds")
 
+    print("File" + str(i + 1) + ".fds has the wrong file hashes. Retrying...")
+
     prg = open("file" + str(i + 1) + ".fds", "wb")
 
     bytesWritten = 0
@@ -102,6 +104,4 @@ while satisfied == False:
             print("This file has the correct ROM and file hashes!")
             print("You have successfully built a copy of " + gameName[games] + "!")
             break
-        else:
-            print("File" + str(i + 1) + ".fds has the wrong file hashes. Retrying...")
     i += 1
