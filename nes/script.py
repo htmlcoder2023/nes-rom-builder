@@ -58,7 +58,7 @@ if os.path.isfile('nes.dat'):
 numStop = int(input("How large is the .nes file without the header? "))
 if os.path.isfile("*.nes"):
     try:
-        os.system("del *.nes")
+        os.remove("*.nes")
     except:
         os.system("chmod +w *.nes")
         os.system("rm *.nes")
@@ -66,7 +66,7 @@ if os.path.isfile("*.nes"):
 while satisfied == False:
     if os.path.isfile("*.bin"):
         try:
-            os.system("del *.bin")
+            os.remove("del *.bin")
         except:
             os.system("chmod +w *.bin")
             os.system("rm *.bin")
