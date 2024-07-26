@@ -55,6 +55,8 @@ while True:
                     sizes[arrs].write("\n" + lines[10])
                 fileWrite[arrs] += 1
     if not line:
+        for files in range(len(sizes)):
+            sizes[files].close()
         break
 
 datFile.close()
