@@ -56,19 +56,20 @@ if os.path.isfile('nes.dat'):
         f.close()
 
 numStop = int(input("How large is the .nes file without the header? "))
-
-try:
-    os.system("del *.nes")
-except:
-    os.system("chmod +w *.nes")
-    os.system("rm *.nes")
+if os.path.isfile("*.nes"):
+    try:
+        os.system("del *.nes")
+    except:
+        os.system("chmod +w *.nes")
+        os.system("rm *.nes")
 
 while satisfied == False:
-    try:
-        os.system("del *.bin")
-    except:
-        os.system("chmod +w *.bin")
-        os.system("rm *.bin")
+    if os.path.isfile("*.bin"):
+        try:
+            os.system("del *.bin")
+        except:
+            os.system("chmod +w *.bin")
+            os.system("rm *.bin")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
