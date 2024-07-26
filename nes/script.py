@@ -63,7 +63,8 @@ while os.path.isfile("file" + str(i + 1) + ".bin"):
 
 i = 0
 while satisfied == False:
-    os.remove("file" + str(i) + ".bin")
+    if i > 0:
+        os.remove("file" + str(i) + ".bin")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
