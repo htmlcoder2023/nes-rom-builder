@@ -37,7 +37,7 @@ while True:
         line = line.replace("		", "")
         line = line.replace('<rom name="', "")
         line = line.split('"')
-        for arrs in range(len(linesArr)):
+        for arrs in range(len(sizes)):
             if line[2] == linesArr[arrs]:
                 if fileWrite[arrs] == 0:
                     sizes[arrs].write(lines[0])
