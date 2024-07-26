@@ -1,7 +1,6 @@
 import random
 import sys
 import os 
-import os.path
 import hashlib
 import zlib
 sys.set_int_max_str_digits(0)
@@ -25,6 +24,8 @@ if os.path.isfile('bytes.dat') and os.path.isfile('byteloc.dat'):
             if loc[bytes].isspace() == False:
                 bytesLoc.append(int(loc[bytes]))
         f.close()
+else:
+    raise Exception("Run script2.py before running this script!")
 
 gameName = []
 crc_LSS = []
@@ -50,6 +51,8 @@ if os.path.isfile('fds.dat'):
                 sha1_LSS.append(gameNames[games])
                 mode = 0
         f.close()
+else:
+    raise Exception("FDS.dat does not exist!")
 
 numStop = int(input("How large is the .fds file? "))
 while os.path.isfile("file" + str(i + 1) + ".fds"):

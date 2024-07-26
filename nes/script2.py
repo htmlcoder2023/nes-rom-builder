@@ -8,7 +8,12 @@ if os.path.isfile("games.dat"):
         romNames = [romNames.rstrip() for romNames in f]
         for names in range(len(romNames)):
             if romNames[names].isspace() == False:
-                roms.append(romNames[names])
+                if os.path.isfile(romNames[names]):
+                    roms.append(romNames[names])
+                else:
+                    raise Exception("You must have dumps of all of the ROMs in games.dat for this script to compare ROMs!")
+else:
+    raise Exception("Run script3.py first before running this script!")
 
 numOfRoms = len(roms)
 for games in range(numOfRoms):

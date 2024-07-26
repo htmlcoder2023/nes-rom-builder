@@ -1,7 +1,6 @@
 import random
 import sys
 import os 
-import os.path
 import hashlib
 import zlib
 sys.set_int_max_str_digits(0)
@@ -25,6 +24,8 @@ if os.path.isfile('bytes.dat') and os.path.isfile('byteloc.dat'):
             if loc[bytes].isspace() == False:
                 bytesLoc.append(int(loc[bytes]) - 16)
         f.close()
+else:
+    raise Exception("Run script2.py before running this script!")
 
 gameName = []
 crc_LSS = []
@@ -54,6 +55,8 @@ if os.path.isfile('nes.dat'):
                 sha256_LSS.append(gameNames[games])
                 mode = 0
         f.close()
+else:
+    raise Exception("NES.dat does not exist!")
 
 numStop = int(input("How large is the .nes file without the header? "))
 
