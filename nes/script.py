@@ -59,7 +59,7 @@ numStop = int(input("How large is the .nes file without the header? "))
 
 while os.path.isfile("file" + str(i + 1) + ".bin"):
     i += 1
-    os.remove("file" + str(i + 1) + ".bin")
+    os.remove("file" + str(i) + ".bin")
 
 i = 0
 while satisfied == False:
