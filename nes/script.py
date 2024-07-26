@@ -61,7 +61,7 @@ if os.path.isfile("*.nes"):
         os.remove("*.nes")
     except:
         os.system("chmod +w *.nes")
-        os.system("rm *.nes")
+        os.remove("*.nes")
 
 while satisfied == False:
     if os.path.isfile("*.bin"):
@@ -69,7 +69,7 @@ while satisfied == False:
             os.remove("*.bin")
         except:
             os.system("chmod +w *.bin")
-            os.system("rm *.bin")
+            os.remove("*.bin")
 
     prg = open("file" + str(i + 1) + ".bin", "wb")
 
