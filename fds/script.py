@@ -54,7 +54,7 @@ if os.path.isfile('fds.dat'):
 numStop = int(input("How large is the .fds file? "))
 while os.path.isfile("file" + str(i + 1) + ".fds"):
     i += 1
-    os.remove("file" + str(i + 1) + ".fds")
+    os.remove("file" + str(i) + ".fds")
     
 i = 0
 while satisfied == False:
