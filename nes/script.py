@@ -66,7 +66,7 @@ if os.path.isfile("*.nes"):
 while satisfied == False:
     if os.path.isfile("*.bin"):
         try:
-            os.remove("del *.bin")
+            os.remove("*.bin")
         except:
             os.system("chmod +w *.bin")
             os.system("rm *.bin")
