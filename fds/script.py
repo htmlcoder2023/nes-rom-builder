@@ -53,10 +53,18 @@ if os.path.isfile('fds.dat'):
 
 numStop = int(input("How large is the .fds file? "))
 
-os.system("del *.bin")
+try:
+    os.system("del *.bin")
+except:
+    os.system("chmod +w *.bin")
+    os.system("rm *.bin")
 
 while satisfied == False:
-    os.system("del *.fds")
+    try:
+        os.system("del *.fds")
+    except:
+        os.system("chmod +w *.fds")
+        os.system("rm *.fds")
 
     prg = open("file" + str(i + 1) + ".fds", "wb")
 
