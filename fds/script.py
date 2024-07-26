@@ -57,7 +57,7 @@ if os.path.isfile("*.bin"):
         os.remove("*.bin")
     except:
         os.system("chmod +w *.bin")
-        os.system("rm *.bin")
+        os.remove("*.bin")
 
 while satisfied == False:
     if os.path.isfile("*.fds"):
@@ -65,7 +65,7 @@ while satisfied == False:
             os.remove("*.fds")
         except:
             os.system("chmod +w *.fds")
-            os.system("rm *.fds")
+            os.remove("*.fds")
 
     prg = open("file" + str(i + 1) + ".fds", "wb")
 
