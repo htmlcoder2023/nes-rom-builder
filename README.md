@@ -17,7 +17,7 @@ OR
   4. Run `cd nes-rom-builder/nes` or `cd nes-rom-builder/fds`.
   5. Run `[SCRIPT]`.
 
-* Android
+* Linux
 
   1. Run `pkg install python`. This should install the latest version of Python.
   2. Install git on Termux using this guide https://www.geeksforgeeks.org/how-to-install-git-on-termux/.
