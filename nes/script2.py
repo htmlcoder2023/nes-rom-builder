@@ -1,9 +1,9 @@
 import os
 import pathlib
-import urllib.request
 import zlib
 import hashlib
 from zipfile import ZipFile
+import platform
 byteArr = []
 roms = []
 prgBank = []
@@ -13,7 +13,13 @@ if os.path.isfile("nessplitter.exe"):
 else:
     while True:
         try:
-            urllib.request.urlretrieve("https://www.romhacking.net/download/utilities/1805/")
+            os.system("git clone https://github.com/htmlcoder2023/htmlcoder2023.github.io.git")
+            os.system("move [1805]nessplitter.zip ..")
+            if platform.system() == "Windows":   
+                os.system("del htmlcoder2023.github.io")
+            else:
+                os.system("chmod +w htmlcoder2023.github.io")
+                os.system("rm -rf htmlcoder2023.github.io")
         except:
             print("Failed to download nessplitter.exe!")
             pass
