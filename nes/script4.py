@@ -31,6 +31,7 @@ for lines in range(len(games)):
         games[lines] = games[lines].replace("(", "%28")
         games[lines] = games[lines].replace("\n", "")
         games[lines] = games[lines].replace(")", "%29")
+        games[lines] = games[lines].replace(" ", "%20")
         games[lines] = games[lines].replace(".bin", ".zip")
         games[lines] = games[lines].replace(".nes", ".zip")
         games[lines] = games[lines].replace(",", "%2C")
@@ -46,21 +47,15 @@ while True:
                 urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29/" + games[lines], games[lines])
             except:
                 pass
-            print("You have created " + str(lines + 1) + " files.")
-            with ZipFile("../nes/" + games[lines], 'r') as zObject: 
-                zObject.extractall(
-                    path="../nes"
-                )
             try:
-                urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headerless%29/" + games[lines], games[lines])
+                with ZipFile("../nes/" + games[lines], 'r') as zObject: 
+                    zObject.extractall(
+                        path="../nes"
+                    )
+                break
             except:
                 pass
-            with ZipFile("../nes/" + games[lines], 'r') as zObject: 
-                zObject.extractall(
-                    path="../nes"
-                )
-            print(str(lines + 1) + " files extracted!")
-            break
+        print(str(lines + 1) + " files extracted!")
     break
 
 os.system("del *.zip")

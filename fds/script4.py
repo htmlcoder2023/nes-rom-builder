@@ -27,6 +27,7 @@ for lines in range(len(games)):
     games[lines] = games[lines].replace("(", "%28")
     games[lines] = games[lines].replace("\n", "")
     games[lines] = games[lines].replace(")", "%29")
+    games[lines] = games[lines].replace(" ", "%20")
     games[lines] = games[lines].replace(".bin", ".zip")
     games[lines] = games[lines].replace(".fds", ".zip")
     games[lines] = games[lines].replace(",", "%2C")
@@ -37,21 +38,20 @@ for lines in range(len(games)):
 
 while True:
     for lines in range(len(games)):
-        try:
-            urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20%28FDS%29/" + games[lines], games[lines])
-            print("You have created " + str(lines + 1) + " files.")
+        while True:
+            try:
+                urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20%28FDS%29/" + games[lines], games[lines])
+            except:
+                pass
             try:
                 with ZipFile("../fds/" + games[lines], 'r') as zObject: 
                     zObject.extractall(
                         path="../fds"
                     )
-                    print(str(lines + 1) + " files extracted!")
+                break
             except:
-                print("Extraction failed.")
-                continue
-        except:
-            print("Download failed.")
-            continue
+                pass
+        print(str(lines + 1) + " files extracted!")
     break
 
 os.system("del *.zip")
