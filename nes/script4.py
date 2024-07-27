@@ -1,6 +1,7 @@
 import urllib.request
 import os
 from zipfile import ZipFile
+import platform
 datFile = open("nes.dat", "r")
 games = []
 while True:
@@ -12,8 +13,14 @@ while True:
 
 datFile = open("games.dat", "w")
 lines = 0
-os.system("del *.nes")
-os.system("del *.zip")
+if platform.system == "Windows":
+    os.system("del *.nes")
+    os.system("del *.zip")
+else:
+    os.system("chmod +w *.nes")
+    os.system("chmod +w *.zip")
+    os.system("rm *.nes")
+    os.system("rm *.zip")
 while lines < len(games):
     games[lines] = games[lines].replace("amp;", "")
     games[lines] = games[lines].replace(".unh", ".nes")
@@ -59,4 +66,8 @@ while True:
         print(str(lines + 1) + " files extracted!")
     break
 
-os.system("del *.zip")
+if platform.system == "Windows":
+    os.system("del *.zip")
+else:
+    os.system("chmod +w *.zip")
+    os.system("rm *.zip")

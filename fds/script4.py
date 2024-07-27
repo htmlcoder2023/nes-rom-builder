@@ -1,6 +1,7 @@
 import urllib.request
 import os
 from zipfile import ZipFile
+import platform
 datFile = open("fds.dat", "r")
 games = []
 while True:
@@ -12,9 +13,19 @@ while True:
 
 datFile = open("games.dat", "w")
 lines = 0
-os.system("del *.fds")
-os.system("del *.bin")
-os.system("del *.zip")
+
+if platform.system() == "Windows":
+    os.system("del *.fds")
+    os.system("del *.bin")
+    os.system("del *.zip")
+else:
+    os.system("chmod +w *.fds")
+    os.system("chmod +w *.bin")
+    os.system("chmod +w *.zip")
+    os.system("rm *.fds")
+    os.system("rm *.bin")
+    os.system("rm *.zip")
+
 while lines < len(games):
     games[lines] = games[lines].replace("amp;", "")
     datFile.write(games[lines])
@@ -55,4 +66,8 @@ while True:
         print(str(lines + 1) + " files extracted!")
     break
 
-os.system("del *.zip")
+if platform.system() == "Windows":
+    os.system("del *.zip")
+else:
+    os.system("chmod +w *.zip")
+    os.system("rm *.zip")
