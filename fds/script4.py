@@ -42,6 +42,7 @@ while True:
             try:
                 urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20%28FDS%29/" + games[lines], games[lines])
             except:
+                print("Failed to download " + games[lines] + "!")
                 pass
             try:
                 with ZipFile("../fds/" + games[lines], 'r') as zObject: 
