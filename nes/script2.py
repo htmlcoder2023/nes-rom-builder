@@ -118,7 +118,7 @@ else:
                 romSHA256 = str(hashlib.sha256(currentFileRead).hexdigest())
                 prgBank.append(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_CHR" + "0" + str(romCount) + ".bin")
                 if linesWritten == 0:
-                    hashCHR.write(roms[files])
+                    hashCHR.write(roms[files] + "(Bank " + str(romCount) + ")")
                     hashCHR.write("\n" + romCRC32)
                     hashCHR.write("\n" + romMD5)
                     hashCHR.write("\n" + romSHA1)
