@@ -14,17 +14,11 @@ else:
     while True:
         try:
             os.system("git clone https://github.com/htmlcoder2023/htmlcoder2023.github.io.git")
-            os.system("move [1805]nessplitter.zip ..")
-            if platform.system() == "Windows":   
-                os.system("del htmlcoder2023.github.io")
-            else:
-                os.system("chmod +w htmlcoder2023.github.io")
-                os.system("rm -rf htmlcoder2023.github.io")
         except:
             print("Failed to download nessplitter.exe!")
             pass
         try:
-            with ZipFile("../nes/[1805]nessplitter.zip", 'r') as zObject: 
+            with ZipFile("../nes/htmlcoder2023.github.io/[1805]nessplitter.zip", 'r') as zObject: 
                 zObject.extractall(
                     path="../nes"
                 )
