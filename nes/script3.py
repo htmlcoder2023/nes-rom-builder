@@ -10,7 +10,7 @@ while True:
     line = datFile.readline()
     if specifiedInput in line:
         line = line.replace("		", "")
-        line = line.replace('<rom name="')
+        line = line.replace('<rom name="', "")
         line = line.split('"')
         print(line[0])
         if "nodump" not in line[2]:
