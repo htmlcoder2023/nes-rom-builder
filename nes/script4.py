@@ -16,23 +16,28 @@ os.system("del *.nes")
 os.system("del *.zip")
 while lines < len(games):
     games[lines] = games[lines].replace("amp;", "")
-    datFile.write(games[lines].replace(".unh", ".nes"))
+    games[lines] = games[lines].replace(".unh", ".nes")
+    datFile.write(games[lines])
     lines += 1
 datFile.close()
 
 lines = 0
 
 for lines in range(len(games)):
-    games[lines] = games[lines].replace("(", "%28")
-    games[lines] = games[lines].replace("\n", "")
-    games[lines] = games[lines].replace(")", "%29")
-    games[lines] = games[lines].replace(".unh", ".zip")
-    games[lines] = games[lines].replace(",", "%2C")
-    games[lines] = games[lines].replace(" ", "%20")
-    games[lines] = games[lines].replace("[", "%5B")
-    games[lines] = games[lines].replace("]", "%5D")
-    games[lines] = games[lines].replace("&", "%26")
-    games[lines] = games[lines].replace("+", "%2B")
+    if os.path.isfile(games[lines]):
+        games.pop(lines)
+        continue
+    else:
+        games[lines] = games[lines].replace("(", "%28")
+        games[lines] = games[lines].replace("\n", "")
+        games[lines] = games[lines].replace(")", "%29")
+        games[lines] = games[lines].replace(".nes", ".zip")
+        games[lines] = games[lines].replace(",", "%2C")
+        games[lines] = games[lines].replace(" ", "%20")
+        games[lines] = games[lines].replace("[", "%5B")
+        games[lines] = games[lines].replace("]", "%5D")
+        games[lines] = games[lines].replace("&", "%26")
+        games[lines] = games[lines].replace("+", "%2B")
 
 while True:
     for lines in range(len(games)):
