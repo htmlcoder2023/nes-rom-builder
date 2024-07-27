@@ -13,7 +13,7 @@ while True:
 
 datFile = open("games.dat", "w")
 lines = 0
-if platform.system == "Windows":
+if platform.system() == "Windows":
     os.system("del *.nes")
     os.system("del *.zip")
 else:
@@ -66,7 +66,7 @@ while True:
         print(str(lines + 1) + " files extracted!")
     break
 
-if platform.system == "Windows":
+if platform.system() == "Windows":
     os.system("del *.zip")
 else:
     os.system("chmod +w *.zip")

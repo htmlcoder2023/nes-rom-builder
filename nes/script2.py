@@ -1,7 +1,31 @@
 import os
 import pathlib
+import urllib.request
+import zlib
+import hashlib
+from zipfile import ZipFile
 byteArr = []
 roms = []
+prgBank = []
+
+if os.path.isfile("nessplitter.exe"):
+    pass
+else:
+    while True:
+        try:
+            urllib.request.urlretrieve("https://www.romhacking.net/download/utilities/1805/")
+        except:
+            print("Failed to download nessplitter.exe!")
+            pass
+        try:
+            with ZipFile("../nes/[1805]nessplitter.zip", 'r') as zObject: 
+                zObject.extractall(
+                    path="../nes"
+                )
+            break
+        except:
+            print("Failed to extract [1805]nessplitter.zip!")
+            pass
 
 if os.path.isfile("games.dat"):
     with open("games.dat") as f:
@@ -15,7 +39,74 @@ if os.path.isfile("games.dat"):
 else:
     raise Exception("Run script3.py first before running this script!")
 
-numOfRoms = len(roms)
+numOfRoms = 0
+romCount = 0
+hashPRG = open("hash-prg.dat", "w")
+hashCHR = open("hash-chr.dat", "w")
+mode = input("PRG or CHR mode? ")
+if mode != "PRG" or mode != "CHR":
+    raise Exception('The answer to "PRG or CHR mode?" can only be [PRG] or [CHR]!')
+linesWritten = 0
+
+for files in range(len(roms)):
+    romCount = 0
+    os.system("mkdir " + roms[files].replace(" ", "-"))
+    os.system("ren " + roms[files] + " " + roms[files].replace(" ", "-"))
+    os.system("nessplitter " + roms[files].replace(" ", "-") + " " + roms[files].replace(" ", "-"))
+    if romCount < 10:
+        while os.path.isfile(roms[files].replace(" ", "-") + "_PRG" + "0" + str(romCount) + ".bin"):
+            romCount += 1
+            numOfRoms += 1
+            currentFile = open(roms[files].replace(" ", "-") + "_PRG" + "0" + str(romCount) + ".bin", "rb")
+            currentFileRead = currentFile.read()
+            romCRC32 = zlib.crc32(currentFileRead)
+            romCRC32 = str(hex(romCRC32))
+            romCRC32 = romCRC32.replace("0x", "")
+            romMD5 = str(hashlib.md5(currentFileRead).hexdigest())
+            romSHA1 = str(hashlib.sha1(currentFileRead).hexdigest())
+            romSHA256 = str(hashlib.sha256(currentFileRead).hexdigest())
+            if linesWritten == 0:
+                hashPRG.write(roms[files])
+                hashPRG.write("\n" + romCRC32)
+                hashPRG.write("\n" + romMD5)
+                hashPRG.write("\n" + romSHA1)
+                hashPRG.write("\n" + romSHA256)
+            else:
+                hashPRG.write("\n" + roms[files])
+                hashPRG.write("\n" + romCRC32)
+                hashPRG.write("\n" + romMD5)
+                hashPRG.write("\n" + romSHA1)
+                hashPRG.write("\n" + romSHA256)
+            linesWritten += 4
+            continue
+    else:
+        while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files].replace(" ", "-") + "_PRG" + str(romCount) + ".bin"):
+            romCount += 1
+            numOfRoms += 1
+            currentFile = open(roms[files].replace(" ", "-") + "/" + roms[files].replace(" ", "-") + "_PRG" + str(romCount) + ".bin", "rb")
+            currentFileRead = currentFile.read()
+            romCRC32 = zlib.crc32(currentFileRead)
+            romCRC32 = str(hex(romCRC32))
+            romCRC32 = romCRC32.replace("0x", "")
+            romMD5 = str(hashlib.md5(currentFileRead).hexdigest())
+            romSHA1 = str(hashlib.sha1(currentFileRead).hexdigest())
+            romSHA256 = str(hashlib.sha256(currentFileRead).hexdigest())
+            prgBank.append(roms[files].replace(" ", "-") + "/" + roms[files].replace(" ", "-") + "_PRG" + str(romCount) + ".bin")
+            if linesWritten == 0:
+                hashPRG.write(roms[files])
+                hashPRG.write("\n" + romCRC32)
+                hashPRG.write("\n" + romMD5)
+                hashPRG.write("\n" + romSHA1)
+                hashPRG.write("\n" + romSHA256)
+            else:
+                hashPRG.write("\n" + roms[files])
+                hashPRG.write("\n" + romCRC32)
+                hashPRG.write("\n" + romMD5)
+                hashPRG.write("\n" + romSHA1)
+                hashPRG.write("\n" + romSHA256)
+            linesWritten += 4
+            continue
+
 for games in range(numOfRoms):
     byteArr.append([])
 
@@ -30,11 +121,12 @@ open("bytes.dat", "w")
 byteLoc_file = open("byteloc.dat", "a")
 matchingByte_file = open("bytes.dat", "a")
 
-for files in range(len(roms)):
-    for size in range(len(roms)):
-        if os.path.getsize(roms[files]) != os.path.getsize(roms[size]):
+romCount = 0
+for files in range(len(prgBank)):
+    for size in range(len(prgBank)):
+        if os.path.getsize(prgBank[files]) != os.path.getsize(prgBank[size]):
             raise Exception("All files must be the same size!")
-    for byte in pathlib.Path(roms[files]).read_bytes():
+    for byte in pathlib.Path(prgBank[size]).read_bytes():
         byteArr[files].append(byte)
 while byteLoc < os.path.getsize(roms[0]):
     romNum = 0
