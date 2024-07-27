@@ -30,7 +30,6 @@ for lines in range(len(games)):
     games[lines] = games[lines].replace(".bin", ".zip")
     games[lines] = games[lines].replace(".fds", ".zip")
     games[lines] = games[lines].replace(",", "%2C")
-    games[lines] = games[lines].replace(" ", "%20")
     games[lines] = games[lines].replace("[", "%5B")
     games[lines] = games[lines].replace("]", "%5D")
     games[lines] = games[lines].replace("&", "%26")
