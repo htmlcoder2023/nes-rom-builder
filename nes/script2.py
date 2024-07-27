@@ -118,17 +118,17 @@ else:
                 romSHA256 = str(hashlib.sha256(currentFileRead).hexdigest())
                 prgBank.append(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_CHR" + "0" + str(romCount) + ".bin")
                 if linesWritten == 0:
-                    hashPRG.write(roms[files])
-                    hashPRG.write("\n" + romCRC32)
-                    hashPRG.write("\n" + romMD5)
-                    hashPRG.write("\n" + romSHA1)
-                    hashPRG.write("\n" + romSHA256)
+                    hashCHR.write(roms[files])
+                    hashCHR.write("\n" + romCRC32)
+                    hashCHR.write("\n" + romMD5)
+                    hashCHR.write("\n" + romSHA1)
+                    hashCHR.write("\n" + romSHA256)
                 else:
-                    hashPRG.write("\n" + roms[files])
-                    hashPRG.write("\n" + romCRC32)
-                    hashPRG.write("\n" + romMD5)
-                    hashPRG.write("\n" + romSHA1)
-                    hashPRG.write("\n" + romSHA256)
+                    hashCHR.write("\n" + roms[files])
+                    hashCHR.write("\n" + romCRC32)
+                    hashCHR.write("\n" + romMD5)
+                    hashCHR.write("\n" + romSHA1)
+                    hashCHR.write("\n" + romSHA256)
                 linesWritten += 4
                 romCount += 1
         else:
@@ -143,17 +143,17 @@ else:
                 romSHA256 = str(hashlib.sha256(currentFileRead).hexdigest())
                 prgBank.append(roms[files].replace(" ", "-") + "/" + roms[files] + "_CHR" + str(romCount) + ".bin")
                 if linesWritten == 0:
-                    hashPRG.write(roms[files])
-                    hashPRG.write("\n" + romCRC32)
-                    hashPRG.write("\n" + romMD5)
-                    hashPRG.write("\n" + romSHA1)
-                    hashPRG.write("\n" + romSHA256)
+                    hashCHR.write(roms[files])
+                    hashCHR.write("\n" + romCRC32)
+                    hashCHR.write("\n" + romMD5)
+                    hashCHR.write("\n" + romSHA1)
+                    hashCHR.write("\n" + romSHA256)
                 else:
-                    hashPRG.write("\n" + roms[files])
-                    hashPRG.write("\n" + romCRC32)
-                    hashPRG.write("\n" + romMD5)
-                    hashPRG.write("\n" + romSHA1)
-                    hashPRG.write("\n" + romSHA256)
+                    hashCHR.write("\n" + roms[files])
+                    hashCHR.write("\n" + romCRC32)
+                    hashCHR.write("\n" + romMD5)
+                    hashCHR.write("\n" + romSHA1)
+                    hashCHR.write("\n" + romSHA256)
                 linesWritten += 4
                 romCount += 1
 
