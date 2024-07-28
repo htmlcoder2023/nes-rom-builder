@@ -34,7 +34,7 @@ if os.path.isfile("games.dat"):
                 if os.path.isfile(romNames[names]):
                     roms.append(romNames[names])
                 else:
-                    raise Exception("You must have dumps of all of the ROMs in games.dat for this script to compare ROMs!")
+                    print("File not found: " + romNames[names])
 else:
     raise Exception("Run script3.py first before running this script!")
 
