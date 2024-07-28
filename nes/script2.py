@@ -51,7 +51,7 @@ if mode == "PRG":
         os.system("mkdir " + roms[files].replace(" ", "-"))
         os.system('nessplitter "' + roms[files] + '" ' + roms[files].replace(" ", "-"))
         if romCount < 10:
-            while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_PRG" + "0" + str(romCount) + ".bin"):
+            while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_PRG" + "0" + str(romCount) + ".bin") and romCount < 10:
                 currentFile = open(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_PRG" + "0" + str(romCount) + ".bin", "rb")
                 currentFileRead = currentFile.read()
                 romCRC32 = zlib.crc32(currentFileRead)
@@ -106,7 +106,7 @@ else:
         os.system("mkdir " + roms[files].replace(" ", "-"))
         os.system('nessplitter "' + roms[files] + '" ' + roms[files].replace(" ", "-"))
         if romCount < 10:
-            while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_CHR" + "0" + str(romCount) + ".bin"):
+            while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_CHR" + "0" + str(romCount) + ".bin") and romCount < 10:
                 currentFile = open(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_CHR" + "0" + str(romCount) + ".bin", "rb")
                 currentFileRead = currentFile.read()
                 romCRC32 = zlib.crc32(currentFileRead)
