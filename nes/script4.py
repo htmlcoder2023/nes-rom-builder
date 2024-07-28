@@ -56,6 +56,10 @@ for lines in range(len(games)):
     games[lines] = games[lines].replace("amp;", "")
     games[lines] = games[lines].replace(".unh", ".nes")
     if os.path.isfile(games[lines]):
+        games.pop(lines)
+        lines -= 1
+        continue
+    else:
         if extract == "yes":
             try:
                 with ZipFile("../nes/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
@@ -70,10 +74,6 @@ for lines in range(len(games)):
         else:
             datFile.write("\n" + games[lines])
         writtenNum += 1
-    else:
-        games.pop(lines)
-        lines -= 1
-        continue
 
 datFile.close()
 
