@@ -35,8 +35,10 @@ sha256_LSS = []
 
 mode = 0
 
-if os.path.isfile('nes.dat'):
-    with open('nes.dat') as f:
+inputFile = input("File with hashes: ")
+
+if os.path.isfile(inputFile):
+    with open(inputFile) as f:
         gameNames = [gameNames.rstrip() for gameNames in f]
         for games in range(len(gameNames)):
             if mode == 0:
@@ -56,7 +58,7 @@ if os.path.isfile('nes.dat'):
                 mode = 0
         f.close()
 else:
-    raise Exception("NES.dat does not exist!")
+    raise Exception("File does not exist!")
 
 numStop = int(input("How large is the .bin file? "))
 

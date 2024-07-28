@@ -34,16 +34,11 @@ for lines in range(len(games)):
     games[lines] = games[lines].replace("\n", "")
     games[lines] = games[lines].replace("amp;", "")
     games[lines] = games[lines].replace(".unh", ".nes")
-    if os.path.isfile(games[lines]):
-        games.pop(lines)
-        lines -= 1
-        continue
+    if writtenNum == 0:
+        datFile.write(games[lines])
     else:
-        if writtenNum == 0:
-            datFile.write(games[lines])
-        else:
-            datFile.write("\n" + games[lines])
-        writtenNum += 1
+        datFile.write("\n" + games[lines])
+    writtenNum += 1
 
 datFile.close()
 
