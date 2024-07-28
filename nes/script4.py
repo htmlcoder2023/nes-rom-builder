@@ -2,14 +2,6 @@ import urllib.request
 import os
 from zipfile import ZipFile
 import platform
-from urllib.parse import urlparse
-
-def uri_validator(x):
-    try:
-        result = urlparse(x)
-        return all([result.scheme, result.netloc])
-    except AttributeError:
-        return False
 
 datFile = open("nes.dat", "r")
 games = []
@@ -34,7 +26,9 @@ else:
 writtenNum = 0
 
 for lines in range(len(games)):
-    if os.path.isfile(games[lines]) or not uri_validator("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29/" + games[lines]):
+    games[lines] = games[lines].replace("\n", "")
+    games[lines] = games[lines].replace("amp;", "")
+    if os.path.isfile(games[lines].replace(".unh", ".nes"):
         games.pop(lines)
         lines -= 1
         continue
@@ -48,13 +42,10 @@ for lines in range(len(games)):
 datFile.close()
 
 for lines in range(len(games)):
-    games[lines] = games[lines].replace("amp;", "")
     games[lines] = games[lines].replace("(", "%28")
-    games[lines] = games[lines].replace("\n", "")
     games[lines] = games[lines].replace(")", "%29")
     games[lines] = games[lines].replace(" ", "%20")
-    games[lines] = games[lines].replace(".bin", ".zip")
-    games[lines] = games[lines].replace(".unh", ".zip")
+    games[lines] = games[lines].replace(".nes", ".zip")
     games[lines] = games[lines].replace(",", "%2C")
     games[lines] = games[lines].replace("[", "%5B")
     games[lines] = games[lines].replace("]", "%5D")
@@ -79,3 +70,9 @@ while True:
                 pass
         print(str(lines + 1) + " files extracted!")
     break
+
+if platform.system() == "Windows":
+    os.system("del *.zip")
+else:
+    os.system("chmod +w *.zip")
+    os.system("rm *.zip")
