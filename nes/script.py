@@ -89,7 +89,7 @@ while satisfied == False:
             byteString = random.choices(bytesArr, k = 1)
             prg.write(bytearray(byteString))
             bytesWritten += 1
-        if prgCounter < len(sameBytes):
+        if prgCounter + 1 < len(sameBytes):
             prgCounter += 1
         else:
             finish = True
