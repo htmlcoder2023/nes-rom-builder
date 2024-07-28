@@ -28,7 +28,7 @@ writtenNum = 0
 for lines in range(len(games)):
     games[lines] = games[lines].replace("\n", "")
     games[lines] = games[lines].replace("amp;", "")
-    if os.path.isfile(games[lines].replace(".unh", ".nes"):
+    if os.path.isfile(games[lines].replace(".unh", ".nes")):
         games.pop(lines)
         lines -= 1
         continue
