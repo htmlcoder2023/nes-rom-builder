@@ -76,8 +76,8 @@ if mode == "PRG":
                 linesWritten += 4
                 romCount += 1
         else:
-            while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files] + "_PRG" + str(romCount) + ".bin"):
-                currentFile = open(roms[files].replace(" ", "-") + "/" + roms[files] + "_PRG" + str(romCount) + ".bin", "rb")
+            while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_PRG" + str(romCount) + ".bin"):
+                currentFile = open(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_PRG" + str(romCount) + ".bin", "rb")
                 currentFileRead = currentFile.read()
                 romCRC32 = zlib.crc32(currentFileRead)
                 romCRC32 = str(hex(romCRC32))
@@ -85,7 +85,7 @@ if mode == "PRG":
                 romMD5 = str(hashlib.md5(currentFileRead).hexdigest())
                 romSHA1 = str(hashlib.sha1(currentFileRead).hexdigest())
                 romSHA256 = str(hashlib.sha256(currentFileRead).hexdigest())
-                prgBank.append(roms[files].replace(" ", "-") + "/" + roms[files] + "_PRG" + str(romCount) + ".bin")
+                prgBank.append(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_PRG" + str(romCount) + ".bin")
                 if linesWritten == 0:
                     hashPRG.write(roms[files] + "(Bank " + str(romCount) + ")")
                     hashPRG.write("\n" + romCRC32)
@@ -131,8 +131,8 @@ else:
                 linesWritten += 4
                 romCount += 1
         else:
-            while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files] + "_CHR" + str(romCount) + ".bin"):
-                currentFile = open(roms[files].replace(" ", "-") + "/" + roms[files] + "_CHR" + str(romCount) + ".bin", "rb")
+            while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_CHR" + str(romCount) + ".bin"):
+                currentFile = open(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_CHR" + str(romCount) + ".bin", "rb")
                 currentFileRead = currentFile.read()
                 romCRC32 = zlib.crc32(currentFileRead)
                 romCRC32 = str(hex(romCRC32))
@@ -140,7 +140,7 @@ else:
                 romMD5 = str(hashlib.md5(currentFileRead).hexdigest())
                 romSHA1 = str(hashlib.sha1(currentFileRead).hexdigest())
                 romSHA256 = str(hashlib.sha256(currentFileRead).hexdigest())
-                prgBank.append(roms[files].replace(" ", "-") + "/" + roms[files] + "_CHR" + str(romCount) + ".bin")
+                prgBank.append(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_CHR" + str(romCount) + ".bin")
                 if linesWritten == 0:
                     hashCHR.write(roms[files] + "(Bank " + str(romCount) + ")")
                     hashCHR.write("\n" + romCRC32)
