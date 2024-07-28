@@ -55,21 +55,25 @@ for lines in range(len(games)):
     games[lines] = games[lines].replace("\n", "")
     games[lines] = games[lines].replace("amp;", "")
     games[lines] = games[lines].replace(".unh", ".nes")
+    if os.path.isfile(games[lines]):
+        if extract == "yes":
+            try:
+                with ZipFile("../nes/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
+                    zObject.extractall(
+                        path="../nes"
+                    )
+            except:
+                pass
 
-    if extract == "yes":
-        try:
-            with ZipFile("../nes/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
-                zObject.extractall(
-                    path="../nes"
-                )
-        except:
-            pass
-
-    if writtenNum == 0:
-        datFile.write(games[lines])
+        if writtenNum == 0:
+            datFile.write(games[lines])
+        else:
+            datFile.write("\n" + games[lines])
+        writtenNum += 1
     else:
-        datFile.write("\n" + games[lines])
-    writtenNum += 1
+        games.pop(lines)
+        lines -= 1
+        continue
 
 datFile.close()
 
@@ -104,10 +108,10 @@ if mode == "yes":
             print(str(lines + 1) + " files extracted!")
         break
 
-    if platform.system() == "Windows":
-        os.system("move nes-roms.zip ..")
-        os.system("del *.zip")
-    else:
-        os.system("chmod +w *.zip")
-        os.system("mv nes-roms.zip ..")
-        os.system("rm *.zip")
+if platform.system() == "Windows":
+    os.system("move nes-roms.zip ..")
+    os.system("del *.zip")
+else:
+    os.system("chmod +w *.zip")
+    os.system("mv nes-roms.zip ..")
+    os.system("rm *.zip")
