@@ -31,9 +31,11 @@ datFile = open("games.dat", "w")
 
 if mode == "yes":
     if platform.system() == "Windows":
+        os.system("move nes-roms.zip ..")
         os.system("del *.zip")
     else:
         os.system("chmod +w *.zip")
+        os.system("mv nes-roms.zip ..")
         os.system("rm *.zip")
 
 if extract == "yes":
@@ -54,10 +56,14 @@ for lines in range(len(games)):
     games[lines] = games[lines].replace("amp;", "")
     games[lines] = games[lines].replace(".unh", ".nes")
 
-    with ZipFile("../nes/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
-        zObject.extractall(
-            path="../nes"
-        )
+    if extract == "yes":
+        try:
+            with ZipFile("../nes/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
+                zObject.extractall(
+                    path="../nes"
+                )
+        except:
+            pass
 
     if writtenNum == 0:
         datFile.write(games[lines])
@@ -99,7 +105,9 @@ if mode == "yes":
         break
 
     if platform.system() == "Windows":
+        os.system("move nes-roms.zip ..")
         os.system("del *.zip")
     else:
         os.system("chmod +w *.zip")
+        os.system("mv nes-roms.zip ..")
         os.system("rm *.zip")
