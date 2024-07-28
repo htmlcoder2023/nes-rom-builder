@@ -5,6 +5,11 @@ import platform
 
 datFile = open("nes.dat", "r")
 games = []
+mode = input("Download? ")
+
+if mode != "yes" and mode != "no":
+    raise Exception("Mode can only be [yes] or [no]!")
+
 while True:
     line = datFile.readline()
     if "(" in line:
@@ -42,38 +47,39 @@ for lines in range(len(games)):
 
 datFile.close()
 
-for lines in range(len(games)):
-    games[lines] = games[lines].replace("(", "%28")
-    games[lines] = games[lines].replace(")", "%29")
-    games[lines] = games[lines].replace(" ", "%20")
-    games[lines] = games[lines].replace(".nes", ".zip")
-    games[lines] = games[lines].replace(",", "%2C")
-    games[lines] = games[lines].replace("[", "%5B")
-    games[lines] = games[lines].replace("]", "%5D")
-    games[lines] = games[lines].replace("&", "%26")
-    games[lines] = games[lines].replace("+", "%2B")
-
-while True:
+if mode == "yes":
     for lines in range(len(games)):
-        while True:
-            try:
-                urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29/" + games[lines], games[lines])
-            except:
-                print("Failed to download " + games[lines] + "!")
-                pass
-            try:
-                with ZipFile("../nes/" + games[lines], 'r') as zObject: 
-                    zObject.extractall(
-                        path="../nes"
-                    )
-                break
-            except:
-                pass
-        print(str(lines + 1) + " files extracted!")
-    break
+        games[lines] = games[lines].replace("(", "%28")
+        games[lines] = games[lines].replace(")", "%29")
+        games[lines] = games[lines].replace(" ", "%20")
+        games[lines] = games[lines].replace(".nes", ".zip")
+        games[lines] = games[lines].replace(",", "%2C")
+        games[lines] = games[lines].replace("[", "%5B")
+        games[lines] = games[lines].replace("]", "%5D")
+        games[lines] = games[lines].replace("&", "%26")
+        games[lines] = games[lines].replace("+", "%2B")
 
-if platform.system() == "Windows":
-    os.system("del *.zip")
-else:
-    os.system("chmod +w *.zip")
-    os.system("rm *.zip")
+    while True:
+        for lines in range(len(games)):
+            while True:
+                try:
+                    urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29/" + games[lines], games[lines])
+                except:
+                    print("Failed to download " + games[lines] + "!")
+                    pass
+                try:
+                    with ZipFile("../nes/" + games[lines], 'r') as zObject: 
+                        zObject.extractall(
+                            path="../nes"
+                        )
+                    break
+                except:
+                    pass
+            print(str(lines + 1) + " files extracted!")
+        break
+
+    if platform.system() == "Windows":
+        os.system("del *.zip")
+    else:
+        os.system("chmod +w *.zip")
+        os.system("rm *.zip")
