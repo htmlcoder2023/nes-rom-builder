@@ -42,11 +42,10 @@ if extract == "yes":
     else:
         os.system("chmod +w *.nes")
         os.system("rm *.nes")
-    if os.path.isfile("../nes/nes-roms.zip/" + games[lines].replace(".unh", ".zip")):
-        with ZipFile("../nes/nes-roms.zip/" + games[lines].replace(".unh", ".zip"), 'r') as zObject: 
-            zObject.extractall(
-                path="../nes"
-            )
+    with ZipFile("../nes/nes-roms.zip", 'r') as zObject: 
+        zObject.extractall(
+            path="../nes"
+        )
 
 writtenNum = 0
 
@@ -54,6 +53,12 @@ for lines in range(len(games)):
     games[lines] = games[lines].replace("\n", "")
     games[lines] = games[lines].replace("amp;", "")
     games[lines] = games[lines].replace(".unh", ".nes")
+
+    with ZipFile("../nes/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
+        zObject.extractall(
+            path="../nes"
+        )
+
     if writtenNum == 0:
         datFile.write(games[lines])
     else:
