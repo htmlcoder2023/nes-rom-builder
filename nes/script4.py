@@ -20,7 +20,18 @@ while True:
     if not line:
         break
 
+datFile.close()
+
 lines = 0
+datFile = open("games.dat", "w")
+
+if platform.system() == "Windows":
+    os.system("del *.zip")
+else:
+    os.system("chmod +w *.zip")
+    os.system("rm *.zip")
+
+writtenNum = 0
 
 for lines in range(len(games)):
     if os.path.isfile(games[lines]) or not uri_validator("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29/" + games[lines]):
@@ -28,18 +39,27 @@ for lines in range(len(games)):
         lines -= 1
         continue
     else:
-        games[lines] = games[lines].replace("amp;", "")
-        games[lines] = games[lines].replace("(", "%28")
-        games[lines] = games[lines].replace("\n", "")
-        games[lines] = games[lines].replace(")", "%29")
-        games[lines] = games[lines].replace(" ", "%20")
-        games[lines] = games[lines].replace(".bin", ".zip")
-        games[lines] = games[lines].replace(".unh", ".zip")
-        games[lines] = games[lines].replace(",", "%2C")
-        games[lines] = games[lines].replace("[", "%5B")
-        games[lines] = games[lines].replace("]", "%5D")
-        games[lines] = games[lines].replace("&", "%26")
-        games[lines] = games[lines].replace("+", "%2B")
+        if writtenNum == 0:
+            datFile.write(games[lines])
+        else:
+            datFile.write("\n" + games[lines])
+        writtenNum += 1
+
+datFile.close()
+
+for lines in range(len(games)):
+    games[lines] = games[lines].replace("amp;", "")
+    games[lines] = games[lines].replace("(", "%28")
+    games[lines] = games[lines].replace("\n", "")
+    games[lines] = games[lines].replace(")", "%29")
+    games[lines] = games[lines].replace(" ", "%20")
+    games[lines] = games[lines].replace(".bin", ".zip")
+    games[lines] = games[lines].replace(".unh", ".zip")
+    games[lines] = games[lines].replace(",", "%2C")
+    games[lines] = games[lines].replace("[", "%5B")
+    games[lines] = games[lines].replace("]", "%5D")
+    games[lines] = games[lines].replace("&", "%26")
+    games[lines] = games[lines].replace("+", "%2B")
 
 while True:
     for lines in range(len(games)):
@@ -59,18 +79,3 @@ while True:
                 pass
         print(str(lines + 1) + " files extracted!")
     break
-
-datFile = open("games.dat", "w")
-lines = 0
-if platform.system() == "Windows":
-    os.system("del *.zip")
-else:
-    os.system("chmod +w *.zip")
-    os.system("rm *.zip")
-while lines < len(games):
-    if lines == 0:
-        datFile.write(games[lines])
-    else:
-        datFile.write("\n" + games[lines])
-    lines += 1
-datFile.close()
