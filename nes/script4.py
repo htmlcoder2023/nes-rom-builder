@@ -39,11 +39,6 @@ if mode == "yes":
         os.system("rm *.zip")
 
 if extract == "yes":
-    if platform.system() == "Windows":
-        os.system("del *.nes")
-    else:
-        os.system("chmod +w *.nes")
-        os.system("rm *.nes")
     with ZipFile("../nes/nes-roms.zip", 'r') as zObject: 
         zObject.extractall(
             path="../nes"
