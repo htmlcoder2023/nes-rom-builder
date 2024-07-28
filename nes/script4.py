@@ -6,9 +6,16 @@ import platform
 datFile = open("nes.dat", "r")
 games = []
 mode = input("Download? ")
+extract = input("Extract ROM Set? ")
 
 if mode != "yes" and mode != "no":
     raise Exception("Mode can only be [yes] or [no]!")
+
+if extract != "yes" and extract != "no":
+    raise Exception('The answer to "Extract ROM Set?" can only be [yes] or [no]!')
+
+if mode == "yes":
+    extract = "no"
 
 while True:
     line = datFile.readline()
@@ -22,11 +29,24 @@ datFile.close()
 lines = 0
 datFile = open("games.dat", "w")
 
-if platform.system() == "Windows":
-    os.system("del *.zip")
-else:
-    os.system("chmod +w *.zip")
-    os.system("rm *.zip")
+if mode == "yes":
+    if platform.system() == "Windows":
+        os.system("del *.zip")
+    else:
+        os.system("chmod +w *.zip")
+        os.system("rm *.zip")
+
+if extract == "yes":
+    if platform.system() == "Windows":
+        os.system("del *.nes")
+    else:
+        os.system("chmod +w *.nes")
+        os.system("rm *.nes")
+    if os.path.isfile("../nes/nes-roms.zip/" + games[lines].replace(".unh", ".zip")):
+        with ZipFile("../nes/nes-roms.zip/" + games[lines], 'r') as zObject: 
+            zObject.extractall(
+                path="../nes"
+            )
 
 writtenNum = 0
 
