@@ -22,7 +22,7 @@ if os.path.isfile('bytes.dat') and os.path.isfile('byteloc.dat'):
         loc = [loc.rstrip() for loc in f]
         for bytes in range(len(loc)):
             if loc[bytes].isspace() == False:
-                bytesLoc.append(int(loc[bytes]) - 16)
+                bytesLoc.append(int(loc[bytes]))
         f.close()
 else:
     raise Exception("Run script2.py before running this script!")
@@ -58,7 +58,7 @@ if os.path.isfile('nes.dat'):
 else:
     raise Exception("NES.dat does not exist!")
 
-numStop = int(input("How large is the .nes file without the header? "))
+numStop = int(input("How large is the .bin file? "))
 
 while os.path.isfile("file" + str(i + 1) + ".bin"):
     i += 1
