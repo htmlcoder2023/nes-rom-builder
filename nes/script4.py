@@ -43,7 +43,7 @@ if extract == "yes":
         os.system("chmod +w *.nes")
         os.system("rm *.nes")
     if os.path.isfile("../nes/nes-roms.zip/" + games[lines].replace(".unh", ".zip")):
-        with ZipFile("../nes/nes-roms.zip/" + games[lines], 'r') as zObject: 
+        with ZipFile("../nes/nes-roms.zip/" + games[lines].replace(".unh", ".zip"), 'r') as zObject: 
             zObject.extractall(
                 path="../nes"
             )
