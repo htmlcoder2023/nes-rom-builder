@@ -69,11 +69,11 @@ for lines in range(len(games)):
             except:
                 pass
 
-        if writtenNum == 0:
-            datFile.write(games[lines])
-        else:
-            datFile.write("\n" + games[lines])
-        writtenNum += 1
+    if writtenNum == 0:
+        datFile.write(games[lines])
+    else:
+        datFile.write("\n" + games[lines])
+    writtenNum += 1
 
 datFile.close()
 
