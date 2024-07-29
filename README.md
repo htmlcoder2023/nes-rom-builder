@@ -6,7 +6,7 @@ This is a Python program that attempts to build matching game ROMs by brute-forc
 
 * Windows
   
-  1. Download the latest release (v1.3 at the time of this writing) and extract the folder nes-rom-builder-exe.
+  1. Download the latest release and extract the folder nes-rom-builder-exe.
   2. Tap on the .exe file to run.
 
 OR
