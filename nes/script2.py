@@ -74,6 +74,7 @@ if mode == "PRG":
                     hashPRG.write("\n" + romSHA1)
                     hashPRG.write("\n" + romSHA256)
                 linesWritten += 4
+                print(roms[files] + " (Bank " + str(romCount) + ")")
                 romCount += 1
         else:
             while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_PRG" + str(romCount) + ".bin"):
@@ -99,6 +100,7 @@ if mode == "PRG":
                     hashPRG.write("\n" + romSHA1)
                     hashPRG.write("\n" + romSHA256)
                 linesWritten += 4
+                print(roms[files] + " (Bank " + str(romCount) + ")")
                 romCount += 1
 else:
     for files in range(len(roms)):
@@ -129,6 +131,7 @@ else:
                     hashCHR.write("\n" + romSHA1)
                     hashCHR.write("\n" + romSHA256)
                 linesWritten += 4
+                print(roms[files] + " (Bank " + str(romCount) + ")")
                 romCount += 1
         else:
             while os.path.isfile(roms[files].replace(" ", "-") + "/" + roms[files].replace(".nes", "") + "_CHR" + str(romCount) + ".bin"):
@@ -154,6 +157,7 @@ else:
                     hashCHR.write("\n" + romSHA1)
                     hashCHR.write("\n" + romSHA256)
                 linesWritten += 4
+                print(roms[files] + " (Bank " + str(romCount) + ")")
                 romCount += 1
 
 for games in range(len(prgBank)):
