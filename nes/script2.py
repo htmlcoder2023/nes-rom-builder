@@ -161,6 +161,7 @@ else:
                 romCount += 1
 
 for games in range(len(prgBank)):
+    print(prgBank[games])
     byteArr.append([])
 
 matching = True
