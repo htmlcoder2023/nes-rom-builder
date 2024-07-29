@@ -2,7 +2,7 @@
 
 This is a Python program that attempts to build matching game ROMs by brute-forcing every possible ROM combination for a certain ROM size.
 
-# How to Run (as of 7/25/2024, or the release of v1.3)
+# How to Run
 
 * Windows
   
