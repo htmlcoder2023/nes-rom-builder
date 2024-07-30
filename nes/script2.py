@@ -39,8 +39,10 @@ else:
     raise Exception("Run script3.py first before running this script!")
 
 romCount = 0
-hashPRG = open("hash-prg.dat", "w")
-hashCHR = open("hash-chr.dat", "w")
+if mode == "PRG":
+    hashPRG = open("hash-prg.dat", "w")
+elif mode == "CHR":
+    hashCHR = open("hash-chr.dat", "w")
 mode = input("PRG or CHR mode? ")
 if mode != "PRG" and mode != "CHR":
     raise Exception('The answer to "PRG or CHR mode?" can only be [PRG] or [CHR]!')
@@ -184,8 +186,8 @@ elif mode == "PRG":
     matchingByte_file = open("bytes_prg.dat", "a")
 
 for files in range(len(prgBank)):
+    print(prgBank[files])
     for byte in pathlib.Path(prgBank[files]).read_bytes():
-        print(prgBank[files])
         byteArr[files].append(byte)
 while byteLoc < os.path.getsize(prgBank[0]):
     matching = True
