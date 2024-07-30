@@ -3,6 +3,7 @@ import pathlib
 import zlib
 import hashlib
 from zipfile import ZipFile
+import platform
 byteArr = []
 roms = []
 prgBank = []
@@ -179,12 +180,17 @@ byteLoc = 0
 romNum = 0
 matchingBytes = 0
 
-for files in range(len(roms)):
-    romCount = 0
-    roms[files] = roms[files].replace(" and", ",")
-    os.system('ren "' + roms[files].replace(",", " and") + '" "' + roms[files] + '"')
-    roms[files] = roms[files].replace("and", "&")
-    os.system('ren "' + roms[files].replace("&", "and") + '" "' + roms[files] + '"')
+if platform.system() == "Windows":
+    os.system("del *.nes")
+else:
+    os.system("chmod +w *.nes")
+    os.system("rm *.nes")
+
+if os.path.isfile("nes-roms.zip"):
+    with ZipFile("../nes/nes-roms.zip", 'r') as zObject:
+        zObject.extractall(
+            path="../nes"
+        )
 
 if mode == "CHR":
     open("byteloc_chr.dat", "w")
