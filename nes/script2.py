@@ -39,13 +39,13 @@ else:
     raise Exception("Run script3.py first before running this script!")
 
 romCount = 0
+mode = input("PRG or CHR mode? ")
+if mode != "PRG" and mode != "CHR":
+    raise Exception('The answer to "PRG or CHR mode?" can only be [PRG] or [CHR]!')
 if mode == "PRG":
     hashPRG = open("hash-prg.dat", "w")
 elif mode == "CHR":
     hashCHR = open("hash-chr.dat", "w")
-mode = input("PRG or CHR mode? ")
-if mode != "PRG" and mode != "CHR":
-    raise Exception('The answer to "PRG or CHR mode?" can only be [PRG] or [CHR]!')
 linesWritten = 0
 if mode == "PRG":
     for files in range(len(roms)):
