@@ -104,9 +104,9 @@ if mode == "yes":
         break
 
 if platform.system() == "Windows":
-    os.system("move nes-roms.zip ..")
+    os.system("move nes-roms.zip ../..")
     os.system("del *.zip")
 else:
     os.system("chmod +w *.zip")
-    os.system("mv nes-roms.zip ..")
+    os.system("mv nes-roms.zip ../..")
     os.system("rm *.zip")
