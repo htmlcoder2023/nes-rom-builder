@@ -185,7 +185,7 @@ elif mode == "PRG":
 
 for files in range(len(prgBank)):
     for byte in pathlib.Path(prgBank[files]).read_bytes():
-	print(prgBank[files])
+        print(prgBank[files])
         byteArr[files].append(byte)
 while byteLoc < os.path.getsize(prgBank[0]):
     matching = True
