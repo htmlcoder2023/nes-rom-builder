@@ -50,6 +50,10 @@ linesWritten = 0
 if mode == "PRG":
     for files in range(len(roms)):
         romCount = 0
+        roms[files] = roms[files].replace(",", " and")
+        os.system("ren " + roms[files].replace(" and", ",") + " " + roms[files])
+        roms[files] = roms[files].replace("&", "and")
+        os.system("ren " + roms[files].replace("and", "&") + " " + roms[files])
         os.system("mkdir " + roms[files].replace(" ", "-"))
         os.system('nessplitter "' + roms[files] + '" ' + roms[files].replace(" ", "-"))
         if romCount < 10:
