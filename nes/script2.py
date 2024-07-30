@@ -7,7 +7,7 @@ import platform
 byteArr = []
 roms = []
 prgBank = []
-games = []
+thugs = []
 
 if os.path.isfile("nessplitter.exe"):
     pass
@@ -35,7 +35,7 @@ if os.path.isfile("games.dat"):
             if romNames[names].isspace() == False:
                 if os.path.isfile(romNames[names]):
                     roms.append(romNames[names])
-                    games.append(romNames[names])
+                    thugs.append(romNames[names])
                 else:
                     print("File not found: " + romNames[names])
 else:
@@ -202,17 +202,17 @@ if os.path.isfile("../../nes-roms.zip"):
             path="../nes"
         )
 
-for lines in range(len(games)):
-    games[lines] = games[lines].replace("\n", "")
-    games[lines] = games[lines].replace("amp;", "")
-    games[lines] = games[lines].replace(".unh", ".nes")
-    if os.path.isfile(games[lines]):
-        games.pop(lines)
+for lines in range(len(thugs)):
+    thugs[lines] = thugs[lines].replace("\n", "")
+    thugs[lines] = thugs[lines].replace("amp;", "")
+    thugs[lines] = thugs[lines].replace(".unh", ".nes")
+    if os.path.isfile(thugs[lines]):
+        thugs.pop(lines)
         lines -= 1
         continue
     else:
         try:
-            with ZipFile("../nes/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
+            with ZipFile("../nes/" + thugs[lines].replace(".nes", ".zip"), 'r') as zObject:
                 zObject.extractall(
                     path="../nes"
                 )
