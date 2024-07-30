@@ -192,6 +192,14 @@ if os.path.isfile("nes-roms.zip"):
             path="../nes"
         )
 
+if platform.system() == "Windows":
+    os.system("move nes-roms.zip ../..")
+    os.system("del *.zip")
+else:
+    os.system("chmod +w *.zip")
+    os.system("mv nes-roms.zip ../..")
+    os.system("rm *.zip")
+
 if mode == "CHR":
     open("byteloc_chr.dat", "w")
     open("bytes_chr.dat", "w")
