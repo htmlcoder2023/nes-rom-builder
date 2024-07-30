@@ -7,7 +7,6 @@ import platform
 byteArr = []
 roms = []
 prgBank = []
-thugs = []
 
 if os.path.isfile("nessplitter.exe"):
     pass
@@ -35,7 +34,6 @@ if os.path.isfile("games.dat"):
             if romNames[names].isspace() == False:
                 if os.path.isfile(romNames[names]):
                     roms.append(romNames[names])
-                    thugs.append(romNames[names])
                 else:
                     print("File not found: " + romNames[names])
 else:
@@ -195,29 +193,6 @@ else:
     os.system("chmod +w *.zip")
     os.system("mv nes-roms.zip ../..")
     os.system("rm *.zip")
-
-if os.path.isfile("../../nes-roms.zip"):
-    with ZipFile("../../nes-roms.zip", 'r') as zObject:
-        zObject.extractall(
-            path="../nes"
-        )
-
-for lines in range(len(thugs)):
-    thugs[lines] = thugs[lines].replace("\n", "")
-    thugs[lines] = thugs[lines].replace("amp;", "")
-    thugs[lines] = thugs[lines].replace(".unh", ".nes")
-    if os.path.isfile(thugs[lines]):
-        thugs.pop(lines)
-        lines -= 1
-        continue
-    else:
-        try:
-            with ZipFile("../nes/" + thugs[lines].replace(".nes", ".zip"), 'r') as zObject:
-                zObject.extractall(
-                    path="../nes"
-                )
-        except:
-            pass
 
 if mode == "CHR":
     open("byteloc_chr.dat", "w")
