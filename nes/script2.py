@@ -169,17 +169,23 @@ byteLoc = 0
 romNum = 0
 matchingBytes = 0
 
-open("byteloc.dat", "w")
-open("bytes.dat", "w")
+if mode == "CHR":
+    open("byteloc_chr.dat", "w")
+    open("bytes_chr.dat", "w")
+elif mode == "PRG":
+    open("byteloc_prg.dat", "w")
+    open("bytes_prg.dat", "w")
 
-byteLoc_file = open("byteloc.dat", "a")
-matchingByte_file = open("bytes.dat", "a")
+if mode == "CHR":
+    byteLoc_file = open("byteloc_chr.dat", "a")
+    matchingByte_file = open("bytes_chr.dat", "a")
+elif mode == "PRG":
+    byteLoc_file = open("byteloc_prg.dat", "a")
+    matchingByte_file = open("bytes_prg.dat", "a")
 
 for files in range(len(prgBank)):
-    for size in range(len(prgBank)):
-        if os.path.getsize(prgBank[files]) != os.path.getsize(prgBank[size]):
-            raise Exception("All files must be the same size!")
     for byte in pathlib.Path(prgBank[files]).read_bytes():
+	print(prgBank[files])
         byteArr[files].append(byte)
 while byteLoc < os.path.getsize(prgBank[0]):
     matching = True

@@ -32,7 +32,7 @@ while True:
 
 datFile.close()
 
-datFile = open("nes.dat", "w")
+datFile = open("nes_roms.dat", "w")
 
 lines = 0
 

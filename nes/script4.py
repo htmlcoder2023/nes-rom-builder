@@ -3,7 +3,7 @@ import os
 from zipfile import ZipFile
 import platform
 
-datFile = open("nes.dat", "r")
+datFile = open("nes_roms.dat", "r")
 games = []
 mode = input("Download? ")
 extract = input("Extract ROM Set? ")
