@@ -102,11 +102,3 @@ if mode == "yes":
                     pass
             print(str(lines + 1) + " files extracted!")
         break
-
-if platform.system() == "Windows":
-    os.system("move nes-roms.zip ../..")
-    os.system("del *.zip")
-else:
-    os.system("chmod +w *.zip")
-    os.system("mv nes-roms.zip ../..")
-    os.system("rm *.zip")
