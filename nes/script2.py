@@ -179,6 +179,13 @@ byteLoc = 0
 romNum = 0
 matchingBytes = 0
 
+for files in range(len(roms)):
+    romCount = 0
+    roms[files] = roms[files].replace(" and", ",")
+    os.system('ren "' + roms[files].replace(",", " and") + '" "' + roms[files] + '"')
+    roms[files] = roms[files].replace("and", "&")
+    os.system('ren "' + roms[files].replace("&", "and") + '" "' + roms[files] + '"')
+
 if mode == "CHR":
     open("byteloc_chr.dat", "w")
     open("bytes_chr.dat", "w")
