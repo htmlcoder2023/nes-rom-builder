@@ -1,4 +1,5 @@
-datFile = open("nes.dat", "r")
+inputFile = input("Database File: ")
+datFile = open(inputFile, "r")
 linesArr = []
 crc32 = []
 md5 = []
