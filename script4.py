@@ -6,14 +6,6 @@ import platform
 inputFile = input("What file contains the ROM hashes? ")
 datFile = open(inputFile, "r")
 games = []
-mode = input("Download? ")
-extract = input("Extract ROM Set? ")
-
-if mode != "yes" and mode != "no":
-    raise Exception("Mode can only be [yes] or [no]!")
-
-if extract != "yes" and extract != "no":
-    raise Exception('The answer to "Extract ROM Set?" can only be [yes] or [no]!')
 
 if mode == "yes":
     extract = "no"
@@ -42,11 +34,10 @@ if mode == "yes":
         os.system("mv nes-roms.zip ..")
         os.system("rm *.zip")
 
-if extract == "yes":
-    with ZipFile("../" + inputDir + "/nes-roms.zip", 'r') as zObject: 
-        zObject.extractall(
-            path="../" + inputDir
-        )
+with ZipFile("../" + inputDir + "/nes-roms.zip", 'r') as zObject: 
+    zObject.extractall(
+        path="../" + inputDir
+    )
 
 writtenNum = 0
 
@@ -59,14 +50,13 @@ for lines in range(len(games)):
         lines -= 1
         continue
     else:
-        if extract == "yes":
-            try:
-                with ZipFile("../" + inputDir "/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
-                    zObject.extractall(
-                        path="../" + inputDir
-                    )
-            except:
-                pass
+        try:
+            with ZipFile("../" + inputDir "/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
+                zObject.extractall(
+                    path="../" + inputDir
+                )
+        except:
+            pass
 
     if writtenNum == 0:
         datFile.write(games[lines])
