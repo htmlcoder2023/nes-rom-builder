@@ -45,7 +45,7 @@ if mode == "yes":
 if extract == "yes":
     with ZipFile("../" + inputDir + "/nes-roms.zip", 'r') as zObject: 
         zObject.extractall(
-            path="../nes"
+            path="../" + inputDir
         )
 
 writtenNum = 0
@@ -63,7 +63,7 @@ for lines in range(len(games)):
             try:
                 with ZipFile("../" + inputDir "/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
                     zObject.extractall(
-                        path="../nes"
+                        path="../" + inputDir
                     )
             except:
                 pass
