@@ -55,7 +55,7 @@ for lines in range(len(games)):
         continue
     else:
         try:
-            with ZipFile("../" + inputDir "/" + games[lines], 'r') as zObject:
+            with ZipFile("../" + inputDir + "/" + games[lines], "r") as zObject:
                 zObject.extractall(
                     path="../" + inputDir
                 )
