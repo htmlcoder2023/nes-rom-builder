@@ -4,7 +4,10 @@ import platform
 
 romZip = input("What .zip file contains the zipped ROMs? ")
 inputFile = input("What file contains the ROM hashes? ")
-datFile = open(inputFile, "r")
+if os.path.isfile(inputFile):
+    datFile = open(inputFile, "r")
+else:
+    raise Exception(inputFile + " not found!")
 games = []
 
 while True:
