@@ -21,7 +21,7 @@ while True:
 
 datFile.close()
 
-inputDir = input("What is the current working directory?" )
+inputDir = input("What is the current working directory? ")
 
 lines = 0
 outputFile = input("Where will the database of NES rom versions be stored? ")
