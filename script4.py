@@ -7,7 +7,7 @@ inputFile = input("What file contains the ROM hashes? ")
 if os.path.isfile(inputFile):
     datFile = open(inputFile, "r")
 else:
-    raise Exception(inputFile + " not found!")
+    raise Exception("File not found!")
 games = []
 
 while True:
