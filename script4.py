@@ -42,17 +42,21 @@ with ZipFile("../" + inputDir + romZip, 'r') as zObject:
 
 writtenNum = 0
 
+fileExtension_num = input("How many file extensions need to be replaced? ")
+
 for lines in range(len(games)):
     games[lines] = games[lines].replace("\n", "")
     games[lines] = games[lines].replace("amp;", "")
-    games[lines] = games[lines].replace(".unh", ".nes")
+    for thugs in range(fileExtension_num):
+        fileExtension = input("Which file extension? ")
+        games[lines] = games[lines].replace(fileExtension, ".zip")
     if os.path.isfile(games[lines]):
         games.pop(lines)
         lines -= 1
         continue
     else:
         try:
-            with ZipFile("../" + inputDir "/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
+            with ZipFile("../" + inputDir "/" + games[lines], 'r') as zObject:
                 zObject.extractall(
                     path="../" + inputDir
                 )
