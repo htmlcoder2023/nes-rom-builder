@@ -39,7 +39,7 @@ if os.path.isfile(gamesfile):
                 else:
                     print("File not found: " + romNames[names])
 else:
-    raise Exception("Run script3.py first before running this script!")
+    raise Exception("File does not exist!")
 
 romCount = 0
 mode = input("PRG or CHR mode? ")
