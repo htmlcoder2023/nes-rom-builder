@@ -1,5 +1,8 @@
 inputFile = input("Database File: ")
-datFile = open(inputFile, "r")
+if os.path.isfile(inputFile):
+    datFile = open(inputFile, "r")
+else:
+    raise Exception("File does not exist!")
 linesArr = []
 crc32 = []
 md5 = []
