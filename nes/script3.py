@@ -33,7 +33,8 @@ while True:
 
 datFile.close()
 
-datFile = open("nes_roms.dat", "w")
+outputFile = input("Where are the hash values of the ROMs going to be stored? ")
+datFile = open(outputFile, "w")
 
 lines = 0
 
