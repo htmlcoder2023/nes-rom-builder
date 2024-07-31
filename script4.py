@@ -3,6 +3,7 @@ import os
 from zipfile import ZipFile
 import platform
 
+romZip = input("What .zip file contains the zipped ROMs? ")
 inputFile = input("What file contains the ROM hashes? ")
 datFile = open(inputFile, "r")
 games = []
@@ -27,14 +28,14 @@ datFile = open(outputFile, "w")
 
 if mode == "yes":
     if platform.system() == "Windows":
-        os.system("move nes-roms.zip ..")
+        os.system("move " + romZip + " ..")
         os.system("del *.zip")
     else:
         os.system("chmod +w *.zip")
-        os.system("mv nes-roms.zip ..")
+        os.system("mv " + romZip + " ..")
         os.system("rm *.zip")
 
-with ZipFile("../" + inputDir + "/nes-roms.zip", 'r') as zObject: 
+with ZipFile("../" + inputDir + romZip, 'r') as zObject: 
     zObject.extractall(
         path="../" + inputDir
     )
