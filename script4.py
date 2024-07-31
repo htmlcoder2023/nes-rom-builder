@@ -27,6 +27,8 @@ while True:
 
 datFile.close()
 
+inputDir = input("What is the current working directory?" )
+
 lines = 0
 outputFile = input("Where will the database of NES rom versions be stored? ")
 datFile = open(outputFile, "w")
@@ -41,7 +43,7 @@ if mode == "yes":
         os.system("rm *.zip")
 
 if extract == "yes":
-    with ZipFile("../nes/nes-roms.zip", 'r') as zObject: 
+    with ZipFile("../" + inputDir + "/nes-roms.zip", 'r') as zObject: 
         zObject.extractall(
             path="../nes"
         )
@@ -59,7 +61,7 @@ for lines in range(len(games)):
     else:
         if extract == "yes":
             try:
-                with ZipFile("../nes/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
+                with ZipFile("../" + inputDir "/" + games[lines].replace(".nes", ".zip"), 'r') as zObject:
                     zObject.extractall(
                         path="../nes"
                     )
@@ -73,34 +75,3 @@ for lines in range(len(games)):
     writtenNum += 1
 
 datFile.close()
-
-if mode == "yes":
-    for lines in range(len(games)):
-        games[lines] = games[lines].replace("(", "%28")
-        games[lines] = games[lines].replace(")", "%29")
-        games[lines] = games[lines].replace(" ", "%20")
-        games[lines] = games[lines].replace(".nes", ".zip")
-        games[lines] = games[lines].replace(",", "%2C")
-        games[lines] = games[lines].replace("[", "%5B")
-        games[lines] = games[lines].replace("]", "%5D")
-        games[lines] = games[lines].replace("&", "%26")
-        games[lines] = games[lines].replace("+", "%2B")
-
-    while True:
-        for lines in range(len(games)):
-            while True:
-                try:
-                    urllib.request.urlretrieve("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29/" + games[lines], games[lines])
-                except:
-                    print("Failed to download " + games[lines] + "!")
-                    pass
-                try:
-                    with ZipFile("../nes/" + games[lines], 'r') as zObject: 
-                        zObject.extractall(
-                            path="../nes"
-                        )
-                    break
-                except:
-                    pass
-            print(str(lines + 1) + " files extracted!")
-        break
