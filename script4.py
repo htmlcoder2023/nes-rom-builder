@@ -7,9 +7,6 @@ inputFile = input("What file contains the ROM hashes? ")
 datFile = open(inputFile, "r")
 games = []
 
-if mode == "yes":
-    extract = "no"
-
 while True:
     line = datFile.readline()
     if "(" in line:
@@ -24,15 +21,6 @@ inputDir = input("What is the current working directory?" )
 lines = 0
 outputFile = input("Where will the database of NES rom versions be stored? ")
 datFile = open(outputFile, "w")
-
-if mode == "yes":
-    if platform.system() == "Windows":
-        os.system("move " + romZip + " ..")
-        os.system("del *.zip")
-    else:
-        os.system("chmod +w *.zip")
-        os.system("mv " + romZip + " ..")
-        os.system("rm *.zip")
 
 with ZipFile("../" + inputDir + romZip, 'r') as zObject: 
     zObject.extractall(
