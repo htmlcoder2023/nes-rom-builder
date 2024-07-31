@@ -3,7 +3,7 @@ from zipfile import ZipFile
 import platform
 
 romZip = input("What .zip file contains the zipped ROMs? ")
-if os.path.isfile(romZip) != True:
+if os.path.isfile("/" + romZip) != True:
     raise Exception("File not found!")
 inputFile = input("What file contains the ROM hashes? ")
 if os.path.isfile(inputFile):
