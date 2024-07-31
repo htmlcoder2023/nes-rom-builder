@@ -27,8 +27,10 @@ else:
             print("Failed to extract [1805]nessplitter.zip!")
             pass
 
-if os.path.isfile("games.dat"):
-    with open("games.dat") as f:
+gamesfile = input("File with Games: ")
+
+if os.path.isfile(gamesfile):
+    with open(gamesfile) as f:
         romNames = [romNames.rstrip() for romNames in f]
         for names in range(len(romNames)):
             if romNames[names].isspace() == False:
@@ -43,10 +45,13 @@ romCount = 0
 mode = input("PRG or CHR mode? ")
 if mode != "PRG" and mode != "CHR":
     raise Exception('The answer to "PRG or CHR mode?" can only be [PRG] or [CHR]!')
+
 if mode == "PRG":
-    hashPRG = open("hash-prg.dat", "w")
+    hash_prg = input("What file do you want to store the PRG hash data? ")
+    hashPRG = open(hash_prg, "w")
 elif mode == "CHR":
-    hashCHR = open("hash-chr.dat", "w")
+    hash_chr = input("What file do you want to store the CHR hash data? ")
+    hashCHR = open(hash_chr, "w")
 linesWritten = 0
 if mode == "PRG":
     for files in range(len(roms)):
@@ -195,18 +200,22 @@ else:
     os.system("rm *.zip")
 
 if mode == "CHR":
-    open("byteloc_chr.dat", "w")
-    open("bytes_chr.dat", "w")
+    byteloc_chr = input("What file do you want to store the matching byte locations for CHR-ROM data? ")
+    bytes_chr = input("What file do you want to store the byte values for CHR-ROM data? ")
+    open(byteloc_chr, "w")
+    open(bytes_chr, "w")
 elif mode == "PRG":
-    open("byteloc_prg.dat", "w")
-    open("bytes_prg.dat", "w")
+    byteloc_prg = input("What file do you want to store the matching byte locations for PRG-ROM data? ")
+    bytes_prg = input("What file do you want to store the byte values for PRG-ROM data? ")
+    open(byteloc_prg, "w")
+    open(bytes_prg, "w")
 
 if mode == "CHR":
-    byteLoc_file = open("byteloc_chr.dat", "a")
-    matchingByte_file = open("bytes_chr.dat", "a")
+    byteLoc_file = open(byteloc_chr, "a")
+    matchingByte_file = open(bytes_chr, "a")
 elif mode == "PRG":
-    byteLoc_file = open("byteloc_prg.dat", "a")
-    matchingByte_file = open("bytes_prg.dat", "a")
+    byteLoc_file = open(byteloc_prg, "a")
+    matchingByte_file = open(bytes_prg, "a")
 
 for files in range(len(prgBank)):
     print(prgBank[files])
