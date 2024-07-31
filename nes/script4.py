@@ -3,7 +3,8 @@ import os
 from zipfile import ZipFile
 import platform
 
-datFile = open("nes_roms.dat", "r")
+inputFile = input("What file contains the ROM hashes? ")
+datFile = open(inputFile, "r")
 games = []
 mode = input("Download? ")
 extract = input("Extract ROM Set? ")
@@ -27,7 +28,8 @@ while True:
 datFile.close()
 
 lines = 0
-datFile = open("games.dat", "w")
+outputFile = input("Where will the database of NES rom versions be stored? ")
+datFile = open(outputFile, "w")
 
 if mode == "yes":
     if platform.system() == "Windows":
