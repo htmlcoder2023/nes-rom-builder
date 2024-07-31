@@ -7,6 +7,7 @@ import platform
 byteArr = []
 roms = []
 prgBank = []
+workingDir = input("What is the current working directory? ")
 
 if os.path.isfile("nessplitter.exe"):
     pass
@@ -18,9 +19,9 @@ else:
             print("Failed to download nessplitter.exe!")
             pass
         try:
-            with ZipFile("../nes/htmlcoder2023.github.io/[1805]nessplitter.zip", 'r') as zObject: 
+            with ZipFile("htmlcoder2023.github.io/[1805]nessplitter.zip", 'r') as zObject: 
                 zObject.extractall(
-                    path="../nes"
+                    path="../" + workingDir
                 )
             break
         except:
