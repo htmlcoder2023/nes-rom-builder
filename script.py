@@ -28,7 +28,7 @@ if os.path.isfile(bytes) and os.path.isfile(bytesLoc):
                 bytesLoc.append(int(loc[bytes]))
         f.close()
 else:
-    raise Exception("Run script2.py before running this script!")
+    raise Exception("File does not exist!")
 
 gameName = []
 crc_LSS = []
