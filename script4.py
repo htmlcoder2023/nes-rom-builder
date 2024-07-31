@@ -1,4 +1,3 @@
-import urllib.request
 import os
 from zipfile import ZipFile
 import platform
