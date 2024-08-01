@@ -67,5 +67,6 @@ while lines < len(games):
         else:
             datFile.write("\n" + games[lines])
         writtenNum += 1
+        break
 
 datFile.close()
