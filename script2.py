@@ -10,7 +10,7 @@ prgBank = []
 workingDir = input("What is the current working directory? ")
 
 if os.path.isfile("../" + workingDir + "/script4.py") or os.path.isfile("../" + workingDir + "/script4.exe"):
-
+    print("")
 else:
     raise Exception("Directory not found!")
 
