@@ -37,7 +37,9 @@ with ZipFile("../" + inputDir + "/" + romZip, 'r') as zObject:
         path="../" + inputDir
     )
 
-fileExtension = input("Which file extension to replace? ")
+fileExtension_input = input("What file extension to replace? ")
+fileExtension_output = input("What file extension to use instead? ")
+fileExtension = input("Which file extension to replace to .zip archive? ")
 
 lines = 0
 
