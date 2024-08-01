@@ -45,6 +45,7 @@ lines = 0
 
 while lines < len(games):
     while True:
+        games[lines] = games[lines].replace(fileExtension_input, fileExtension_output)
         games[lines] = games[lines].replace("\n", "")
         games[lines] = games[lines].replace("amp;", "")
         games[lines] = games[lines].replace(fileExtension, ".zip")
