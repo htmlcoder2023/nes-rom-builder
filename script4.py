@@ -50,6 +50,7 @@ for lines in range(len(games)):
     while fileNum < fileExtension_num:
         fileExtension = input("Which file extension? ")
         games[lines] = games[lines].replace(fileExtension, ".zip")
+        fileNum += 1
     if os.path.isfile(games[lines]):
         games.pop(lines)
         lines -= 1
