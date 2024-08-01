@@ -41,7 +41,7 @@ with ZipFile("../" + inputDir + "/" + romZip, 'r') as zObject:
 
 writtenNum = 0
 
-fileExtension = input("Which file extension? ")
+fileExtension = input("Which file extension to replace? ")
 
 for lines in range(len(games)):
     games[lines] = games[lines].replace("\n", "")
