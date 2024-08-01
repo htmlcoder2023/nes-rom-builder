@@ -25,6 +25,11 @@ datFile.close()
 
 inputDir = input("What is the current working directory? ")
 
+if os.path.isfile("../" + inputDir + "/script4.py") or os.path.isfile("../" + inputDir + "/script4.exe"):
+    continue
+else:
+    raise Exception("Directory not found!")
+
 lines = 0
 outputFile = input("Where will the database of NES rom versions be stored? ")
 datFile = open(outputFile, "w")
