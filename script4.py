@@ -38,8 +38,6 @@ with ZipFile("../" + inputDir + "/" + romZip, 'r') as zObject:
         path="../" + inputDir
     )
 
-writtenNum = 0
-
 fileExtension = input("Which file extension to replace? ")
 
 lines = 0
@@ -53,20 +51,16 @@ while lines < len(games):
             games.pop(lines)
             break
         else:
-            try:
-                with ZipFile("../" + inputDir + "/" + games[lines], "r") as zObject:
-                    zObject.extractall(
-                        path="../" + inputDir
-                    )
-                lines += 1
-            except:
-                pass
+            with ZipFile("../" + inputDir + "/" + games[lines], "r") as zObject:
+                zObject.extractall(
+                    path="../" + inputDir
+                )
 
-        if writtenNum == 0:
+        if lines == 0:
             datFile.write(games[lines])
         else:
             datFile.write("\n" + games[lines])
-        writtenNum += 1
+        lines += 1
         break
 
 datFile.close()
