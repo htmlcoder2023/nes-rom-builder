@@ -26,7 +26,7 @@ datFile.close()
 inputDir = input("What is the current working directory? ")
 
 if os.path.isfile("../" + inputDir + "/script4.py") or os.path.isfile("../" + inputDir + "/script4.exe"):
-    continue
+    print("")
 else:
     raise Exception("Directory not found!")
 
