@@ -41,16 +41,12 @@ with ZipFile("../" + inputDir + "/" + romZip, 'r') as zObject:
 
 writtenNum = 0
 
-fileExtension_num = int(input("How many file extensions need to be replaced? "))
-fileNum = 0
+fileExtension = input("Which file extension? ")
 
 for lines in range(len(games)):
     games[lines] = games[lines].replace("\n", "")
     games[lines] = games[lines].replace("amp;", "")
-    while fileNum < fileExtension_num:
-        fileExtension = input("Which file extension? ")
-        games[lines] = games[lines].replace(fileExtension, ".zip")
-        fileNum += 1
+    games[lines] = games[lines].replace(fileExtension, ".zip")
     if os.path.isfile(games[lines]):
         games.pop(lines)
         lines -= 1
