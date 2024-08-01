@@ -42,27 +42,30 @@ writtenNum = 0
 
 fileExtension = input("Which file extension to replace? ")
 
-for lines in range(len(games)):
-    games[lines] = games[lines].replace("\n", "")
-    games[lines] = games[lines].replace("amp;", "")
-    games[lines] = games[lines].replace(fileExtension, ".zip")
-    if os.path.isfile(games[lines]):
-        games.pop(lines)
-        lines -= 1
-        continue
-    else:
-        try:
-            with ZipFile("../" + inputDir + "/" + games[lines], "r") as zObject:
-                zObject.extractall(
-                    path="../" + inputDir
-                )
-        except:
-            pass
+lines = 0
 
-    if writtenNum == 0:
-        datFile.write(games[lines])
-    else:
-        datFile.write("\n" + games[lines])
-    writtenNum += 1
+while lines < len(games):
+    while True:
+        games[lines] = games[lines].replace("\n", "")
+        games[lines] = games[lines].replace("amp;", "")
+        games[lines] = games[lines].replace(fileExtension, ".zip")
+        if os.path.isfile(games[lines]):
+            games.pop(lines)
+            break
+        else:
+            try:
+                with ZipFile("../" + inputDir + "/" + games[lines], "r") as zObject:
+                    zObject.extractall(
+                        path="../" + inputDir
+                    )
+                lines += 1
+            except:
+                pass
+
+        if writtenNum == 0:
+            datFile.write(games[lines])
+        else:
+            datFile.write("\n" + games[lines])
+        writtenNum += 1
 
 datFile.close()
