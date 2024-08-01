@@ -9,6 +9,11 @@ roms = []
 prgBank = []
 workingDir = input("What is the current working directory? ")
 
+if os.path.isfile("../" + workingDir + "/script4.py") or os.path.isfile("../" + workingDir + "/script4.exe"):
+    continue
+else:
+    raise Exception("Directory not found!")
+
 if os.path.isfile("nessplitter.exe"):
     pass
 else:
