@@ -34,7 +34,7 @@ lines = 0
 outputFile = input("Where will the database of NES rom versions be stored? ")
 datFile = open(outputFile, "w")
 
-with ZipFile("../" + inputDir + romZip, 'r') as zObject: 
+with ZipFile("../" + inputDir + "/" + romZip, 'r') as zObject: 
     zObject.extractall(
         path="../" + inputDir
     )
