@@ -3,7 +3,6 @@ import pathlib
 import zlib
 import hashlib
 from zipfile import ZipFile
-import platform
 byteArr = []
 roms = []
 prgBank = []
@@ -190,20 +189,6 @@ matching = True
 byteLoc = 0
 romNum = 0
 matchingBytes = 0
-
-if platform.system() == "Windows":
-    os.system("del *.nes")
-else:
-    os.system("chmod +w *.nes")
-    os.system("rm *.nes")
-
-if platform.system() == "Windows":
-    os.system("move nes-roms.zip ../..")
-    os.system("del *.zip")
-else:
-    os.system("chmod +w *.zip")
-    os.system("mv nes-roms.zip ../..")
-    os.system("rm *.zip")
 
 if mode == "CHR":
     byteloc_chr = input("What file do you want to store the matching byte locations for CHR-ROM data? ")
