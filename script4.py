@@ -46,7 +46,7 @@ while lines < len(games):
         games[lines] = games[lines].replace("\n", "")
         games[lines] = games[lines].replace("amp;", "")
         games[lines] = games[lines].replace(fileExtension, ".zip")
-        if os.path.isfile(games[lines]):
+        if os.path.isfile(games[lines].replace(".zip", fileExtension):
             games.pop(lines)
             break
         else:
