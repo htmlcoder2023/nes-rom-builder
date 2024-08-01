@@ -61,7 +61,7 @@ while lines < len(games):
         if lines == 0:
             datFile.write(games[lines].replace(".zip", fileExtension))
         else:
-            datFile.write("\n" + games[lines].replace(".zip", fileExtension)
+            datFile.write("\n" + games[lines].replace(".zip", fileExtension))
         lines += 1
         break
 
