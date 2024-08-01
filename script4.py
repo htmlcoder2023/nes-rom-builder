@@ -30,7 +30,6 @@ if os.path.isfile("../" + inputDir + "/script4.py") or os.path.isfile("../" + in
 else:
     raise Exception("Directory not found!")
 
-lines = 0
 outputFile = input("Where will the database of NES rom versions be stored? ")
 datFile = open(outputFile, "w")
 
