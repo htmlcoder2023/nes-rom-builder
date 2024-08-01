@@ -57,11 +57,11 @@ while lines < len(games):
                 zObject.extractall(
                     path="../" + inputDir
                 )
-
+        
         if lines == 0:
-            datFile.write(games[lines])
+            datFile.write(games[lines].replace(".zip", fileExtension))
         else:
-            datFile.write("\n" + games[lines])
+            datFile.write("\n" + games[lines].replace(".zip", fileExtension)
         lines += 1
         break
 
