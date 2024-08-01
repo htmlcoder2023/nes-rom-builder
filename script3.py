@@ -1,3 +1,4 @@
+import os
 inputFile = input("Database File: ")
 if os.path.isfile(inputFile):
     datFile = open(inputFile, "r")
