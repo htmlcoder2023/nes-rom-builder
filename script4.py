@@ -1,6 +1,5 @@
 import os
 from zipfile import ZipFile
-import platform
 
 romZip = input("What .zip file contains the zipped ROMs? ")
 if os.path.isfile(romZip):
